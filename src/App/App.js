@@ -10,8 +10,8 @@ const App = () => {
           <div className="hero-body">
             <span className="hero-heading">
               One-stop shop for all your travel needs</span>
-            <button>
-              Take me away!
+            <button className="hero-bt">
+              Take me away
             </button>
           </div>
           <div>
