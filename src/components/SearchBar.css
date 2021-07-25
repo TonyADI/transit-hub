@@ -1,0 +1,14 @@
+.searchbar {
+    border: 1px solid #000;
+    border-radius: 45px;
+    width: 20%;
+}
+
+.searchbar input{
+    border: 0;
+    border-radius: inherit;
+    outline: none;
+    padding: 20px 25px;
+    width: calc(100% - 50px);
+    font-size: 14px;
+}
