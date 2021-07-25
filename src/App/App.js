@@ -5,6 +5,19 @@ const App = () => {
   return (
     <div className="App">
       <Navbar />
+      <div className="hero-container">
+        <div className="img-overlay">
+          <div className="hero-body">
+            <span className="hero-heading">
+              One-stop shop for all your travel needs</span>
+            <button>
+              Take me away!
+            </button>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
