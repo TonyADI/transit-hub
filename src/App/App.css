@@ -16,10 +16,12 @@
 }
 
 .hero-body{
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 .hero-heading {
@@ -34,4 +36,13 @@
   top: 0;
   position: absolute;
   width: inherit;
+}
+
+.hero-bt {
+  border: 0;
+  border-radius: 45px;
+  font-size: 18px;
+  margin: 10px auto;
+  padding: 10px 15px;
+  width: max-content;
 }
