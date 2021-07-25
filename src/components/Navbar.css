@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.navbar .logo-link {
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navbar .login-bt {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.navbar .navbar-rnd{
+    border: 1px solid #000;
+    border-radius: 45px;
+    padding: 10px 15px;
+}

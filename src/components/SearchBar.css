@@ -1,0 +1,11 @@
+.searchbar {
+    width: 20%;
+}
+
+.searchbar input{
+    border: 0;
+    border-radius: inherit;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
