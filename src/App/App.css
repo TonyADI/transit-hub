@@ -6,3 +6,43 @@
   padding-left: 50px !important;
   padding-right: 50px !important;
 }
+
+.hero-container{
+  background-image: url('../assets/images/hero-bg.jpg');
+  background-size: cover;
+  height: 80vh;
+  position: relative;
+  width: 100%;
+}
+
+.hero-body{
+  display: flex;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.hero-heading {
+  color: #fff;
+  font-size: 35px;
+}
+
+.img-overlay {
+  background-color: rgba(0,0,0,0.3);
+  height: inherit;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: inherit;
+}
+
+.hero-bt {
+  border: 0;
+  border-radius: 45px;
+  font-size: 18px;
+  margin: 10px auto;
+  padding: 10px 15px;
+  width: max-content;
+}
