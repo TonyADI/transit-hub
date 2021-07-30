@@ -3,8 +3,24 @@
 }
 
 .body-padding{
-  padding-left: 50px !important;
-  padding-right: 50px !important;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+
+.countries-container {
+  margin-top: 50px;
+}
+
+.flex-direction-col {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between;
+}
+
+.flex-direction-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-evenly;
 }
 
 .hero-container{
@@ -26,7 +42,7 @@
 
 .hero-heading {
   color: #fff;
-  font-size: 35px;
+  font-size: 55px;
 }
 
 .img-overlay {
@@ -45,4 +61,9 @@
   margin: 10px auto;
   padding: 10px 15px;
   width: max-content;
+}
+
+@keyframes fade-down {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
 }
