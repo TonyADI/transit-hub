@@ -1,12 +1,13 @@
-import { useState } from 'react';
 import './SearchBar.css'
 
 const Searchbar = props => {
-    const [term, setTerm] = useState('');
+    const handleChange = e => {
+        props.handleChange(e.target.value)
+    }
     return (
         <div className="searchbar navbar-rnd">
             <input placeholder="Where would you like to go?"
-            value={term} onChange={e => setTerm(e.target.value)}></input>
+            value={props.term} onChange={handleChange}></input>
         </div>
     )
 }
