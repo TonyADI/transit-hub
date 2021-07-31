@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /*Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;*/
 }
 
 .body-padding{
@@ -24,9 +25,11 @@
 }
 
 .hero-container{
-  background-image: url('../assets/images/hero-bg.jpg');
+  animation: hero-resize 0.75s 1.15s forwards;
+  background-image: url('../assets/images/hero-bg2.jpg');
+  background-position: center;
   background-size: cover;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   width: 100%;
 }
@@ -35,18 +38,41 @@
   display: flex;
   flex-direction: column;
   left: 50%;
+  overflow: hidden;
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  position: absolute;
+}
+
+.hero-bt {
+  animation: hero-bt-resize 0.75s 3s forwards;
+  border: 0;
+  border-radius: 45px;
+  font-size: 18px;
+  margin: 10px auto;
+  padding: 15px 20px;
+  height: 50px;
+  transform: translateY(70px);
+  width: 50px;
+  /*width max-content, height: auto */
+}
+
+.hero-bt span{
+  animation: fade-in 0.75s 3.5s forwards;
+  opacity: 0;
 }
 
 .hero-heading {
+  animation: drop-down 0.75s 2.25s forwards;
   color: #fff;
   font-size: 55px;
+  transform: translateY(-150px);
 }
 
 .img-overlay {
-  background-color: rgba(0,0,0,0.3);
+  animation: intro-fade 0.75s 0.25s forwards;
+  background-color: rgba(0,0,0,1);
+  border-radius: inherit;
   height: inherit;
   left: 0;
   top: 0;
@@ -54,16 +80,32 @@
   width: inherit;
 }
 
-.hero-bt {
-  border: 0;
-  border-radius: 45px;
-  font-size: 18px;
-  margin: 10px auto;
-  padding: 10px 15px;
-  width: max-content;
-}
-
 @keyframes fade-down {
   from {transform: translateY(-50px); opacity: 0;}
   to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes intro-fade {
+  from {background-color: rgba(0,0,0,1);}
+  to {background-color: rgba(0,0,0,0.3);}
+}
+
+@keyframes hero-resize {
+  from {transform: scale(1); border-radius: 0px;}
+  to {transform: scale(0.95, 0.85); border-radius: 15px;}
+}
+
+@keyframes hero-bt-resize {
+  from {width: 50px; transform: translateY(70px);}
+  to {width: 25%; transform: translateY(0px);}
+}
+
+@keyframes fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes drop-down {
+  from {transform: translateY(-150px);}
+  to {transform: translateY(0);}
 }
