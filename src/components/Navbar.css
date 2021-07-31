@@ -1,5 +1,6 @@
 .navbar-container {
-    animation: navbar-bckg 0.75s 4s forwards;
+    animation: navbar-bckg 0.75s 2s forwards;
+    opacity: 0;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -9,7 +10,7 @@
     display: flex;
     flex: 1;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px;
 }
 
 .navbar .logo-link {
