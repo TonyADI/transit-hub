@@ -92,7 +92,7 @@
 
 @keyframes hero-resize {
   from {transform: scale(1) translateY(0); border-radius: 0px;}
-  to {transform: scale(0.95, 0.85) translateY(25px); border-radius: 15px;}
+  to {transform: scale(0.95, 0.85) translateY(40px); border-radius: 15px;}
 }
 
 @keyframes hero-bt-resize {
