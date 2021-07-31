@@ -5,9 +5,10 @@ const Searchbar = props => {
         props.handleChange(e.target.value)
     }
     return (
-        <div className="searchbar navbar-rnd">
-            <input placeholder="Where would you like to go?"
-            value={props.term} onChange={handleChange}></input>
+        <div className="searchbar">
+            <div className="input-container">
+                <input placeholder="Where would you like to go?"
+            value={props.term} onChange={handleChange}></input></div>
         </div>
     )
 }

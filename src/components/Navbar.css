@@ -1,22 +1,44 @@
+.navbar-container {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
 .navbar {
     display: flex;
+    flex: 1;
     justify-content: space-between;
-    padding: 20px 0px;
+    padding-top: 15px;
 }
 
 .navbar .logo-link {
     color: #000;
     font-size: 20px;
     text-decoration: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navbar .logo-link-container {
+    flex: 33%;
+    position: relative;
+    text-align: left;
+}
+
+.navbar .login-bt-container{
+    flex: 33%;
+    text-align: right;
 }
 
 .navbar .login-bt {
     background-color: #fff;
+    border: 0.25px solid #ccc !important;
+    box-shadow: 0px 0px 2px #ddd;
     cursor: pointer;
 }
 
 .navbar .navbar-rnd{
-    border: 1px solid #000;
     border-radius: 45px;
-    padding: 10px 15px;
+    padding: 15px 20px;
 }

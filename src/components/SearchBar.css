@@ -1,13 +1,21 @@
 .searchbar {
-    width: 20%;
-    border: 0.25px solid #ccc !important;
-    box-shadow: 0px 1px 4px #ccc;
+    flex: 33%;
 }
 
 .searchbar input{
     border: 0;
     border-radius: inherit;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 15px 20px;
     outline: none;
     width: 100%;
-    font-size: 14px;
+}
+
+.searchbar .input-container{
+    border: 0.25px solid #ccc !important;
+    border-radius: 45px;
+    box-shadow: 0px 1px 4px #ccc;
+    margin: auto;
+    width: 60%;
 }
