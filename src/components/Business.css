@@ -1,7 +1,10 @@
 .business-container {
+  animation: fade-up 1s forwards;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  transform: translateY(50px);
   width: 16.66rem;
   margin: 0 .5rem 2.3rem;
 }
