@@ -4,6 +4,7 @@
 
 .country-details-container {
     padding: 20px 0px;
+    position: relative;
 }
 
 .country-details {
@@ -18,9 +19,14 @@
 
 .country-images-container {
     border-radius: 10px;
-    max-height: 400px;
-    overflow: hidden;
+    left: 50%;
     max-width: 700px;
+    max-height: 350px;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    top: 7%;
+    transform: translateX(-50%);
 }
 
 .country-images-container img{
@@ -36,12 +42,14 @@
 }
 
 .country-container .travel-advisory {
+    animation: fill-out 1s ease forwards;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
     border-radius: 10px;
     color: #fff;
     font-size: 20px;
-    margin: auto 80px;
     padding: 15px 0;
-
 }
 
 .cdc-link {
@@ -51,7 +59,9 @@
 }
 
 .country-container .covid-info {
+    animation: fade-in 1s ease forwards;
     color: #444;
+    opacity: 0;
     padding: 10px 0;
 }
 
@@ -65,4 +75,14 @@ div.flex-direction-col > h3, div.country-container div div
 div.flex-direction-col > h3 {
     animation: drop-down 0.75s forwards;
     transform: translateY(-150px);
+}
+
+.slide-transition {
+    animation: fade-out ease 1s 9s;
+    z-index: 5 !important;
+}
+
+@keyframes fill-out {
+    from {background-size: 0% 100%;}
+    to {background-size: 100% 100%;}
 }
