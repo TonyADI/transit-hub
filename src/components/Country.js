@@ -3,10 +3,10 @@ import './Country.css';
 
 const Country = props => {
     return (
-        <div className="country-container">
+        <div className="country-container body-padding">
             <span className="country-name">{props.details.name}</span>
             {props.details.capital ? <div className="flex-direction-row
-            country-details-container">
+            country-details-container body-padding">
                 <div className="country-details flex-direction-col">
                     <div className="flex-direction-col">
                         <h3>Capital</h3>
@@ -26,10 +26,13 @@ const Country = props => {
                         <span>{props.details.timezones[0]}</span>
                     </div>
                 </div>
-                <div className="country-images-container">
-                    <img src={props.photos[0]} /*src={'https://ethiopjobs.com/wp-content/uploads/2020/06/Japanese-IPTV-Playlist-Japan.png'}*/ 
-                    alt={props.imageDesc}/>
-                </div>
+
+                {props.photos.length ? props.photos.map(photo => 
+                    <div className="country-images-container" id={photo.id} >
+                        <img src={photo.imgUrl} alt={photo.descrp} />
+                    </div>) :
+                <div>No Images</div>}
+
                 <div className="country-details flex-direction-col">
                     <div className="flex-direction-col">
                         <h3>Calling Code</h3>
@@ -69,10 +72,12 @@ const Country = props => {
                     rel="noreferrer">CDC </a>
                     for more information.
                     </div>
-                <div className="travel-advisory" style={{backgroundColor: props.bgColor}}>
+                <div className="travel-advisory" style={{backgroundImage: 
+                    `linear-gradient(${props.bgColor}, ${props.bgColor})`}}>
                     Covid-19: Level {props.covidLevel}
                 </div>
-                {props.covidData.Confirmed && <div className="flex-direction-row">
+                {props.covidData.Confirmed && <div className="body-padding
+                flex-direction-row">
                     <div className="flex-direction-col">
                         <h3>Total Confirmed Cases</h3>
                         <span>{props.covidData.Confirmed.toLocaleString('en', 
