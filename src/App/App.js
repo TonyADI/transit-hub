@@ -25,12 +25,22 @@ const App = () => {
     setCountry(term);
   }
 
+  const handleClick = () => {
+    photoSearch(country).then(photos => setPhotos(photos));
+    countrySearch(country).then(details => setDetails(details));
+    businessSearch('hotels', country).then(hotels => setHotels(hotels));
+    businessSearch('attractions', country).then(attractions => setAttractions(attractions));
+    covidSearch(country).then(data => setCovidData(data));
+    const capitalizedCountry = country[0].toUpperCase() + country.slice(1);
+    setCovidLevel(countries[capitalizedCountry]);
+  }
+
   useEffect(() => {
-    //photoSearch(country).then(photos => setPhotos(photos));
-    //countrySearch(country).then(details => setDetails(details));
+    photoSearch(country).then(photos => setPhotos(photos));
+    countrySearch(country).then(details => setDetails(details));
     //businessSearch('hotels', country).then(hotels => setHotels(hotels));
     //businessSearch('attractions', country).then(attractions => setAttractions(attractions));
-    //covidSearch(country).then(data => setCovidData(data));
+    covidSearch(country).then(data => setCovidData(data));
     const capitalizedCountry = country[0].toUpperCase() + country.slice(1);
     setCovidLevel(countries[capitalizedCountry]);
   }, [])
@@ -69,7 +79,8 @@ const App = () => {
   
   return (
     <div className="App">
-      {<Navbar term={country} handleChange={handleChange}/>}
+      {<Navbar term={country} handleChange={handleChange}
+      handleClick={handleClick}/>}
       <div className="hero-container">
         <div className="img-overlay">
           <div className="hero-body">
