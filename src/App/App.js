@@ -36,14 +36,37 @@ const App = () => {
   }
 
   useEffect(() => {
-    photoSearch(country).then(photos => setPhotos(photos));
+    //photoSearch(country).then(photos => setPhotos(photos));
     countrySearch(country).then(details => setDetails(details));
-    //businessSearch('hotels', country).then(hotels => setHotels(hotels));
+    businessSearch('hotels', country).then(hotels => setHotels(hotels));
     //businessSearch('attractions', country).then(attractions => setAttractions(attractions));
-    covidSearch(country).then(data => setCovidData(data));
+    //covidSearch(country).then(data => setCovidData(data));
     const capitalizedCountry = country[0].toUpperCase() + country.slice(1);
     setCovidLevel(countries[capitalizedCountry]);
   }, [])
+
+  /*
+  useEffect(() => {
+    var currentSlide = 2;
+    const slides = document.getElementsByClassName('country-images-container');
+    setInterval(() => {
+      for(let i = 0;i < slides.length; i++){
+        slides[i].classList.remove('slide-transition');
+    }
+      slides[currentSlide].classList.add('slide-transition');
+        setTimeout(() => {
+        slides[currentSlide === 0 ? 2 : currentSlide - 1].style.zIndex = `4`;
+        slides[currentSlide].style.zIndex = `${currentSlide === 2 ? -3 : currentSlide - 2}`;
+        currentSlide = currentSlide === 0 ? 2 : currentSlide - 1;
+      }, 10000);
+    }, 10000)
+  }, [details])*/
+
+  // Rerun animation when covid level changes
+  useEffect(() => {
+    document.querySelector('.travel-advisory').style.animation = '';
+    document.querySelector('.travel-advisory').style.animation = 'fill-out 1s ease forwards';
+  }, [bgColor])
 
   
   useEffect(() => {
