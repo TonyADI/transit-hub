@@ -85,6 +85,11 @@
   to {transform: translateY(0); opacity: 1;}
 }
 
+@keyframes fade-up {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
 @keyframes intro-fade {
   from {background-color: rgba(0,0,0,1);}
   to {background-color: rgba(0,0,0,0.3);}
@@ -92,8 +97,15 @@
 
 @keyframes hero-resize {
   from {transform: scale(1) translateY(0); border-radius: 0px;}
-  to {transform: scale(0.95, 0.85) translateY(40px); border-radius: 15px;}
+  to {transform: scale(0.95, 0.85) translateY(30px); border-radius: 15px;}
 }
+
+/*
+@keyframes hero-resize {
+  from {transform: scale(1) translateY(0); height: 100vh; border-radius: 0px;}
+  to {transform: scale(0.95, 1) translateY(80px); height: 85vh; border-radius: 15px;}
+}
+*/
 
 @keyframes hero-bt-resize {
   from {width: 50px; transform: translateY(70px);}
