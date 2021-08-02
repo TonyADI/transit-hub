@@ -62,8 +62,8 @@ const Country = props => {
             <br />
             <br />
             <br />
-            <div>
-                <div>
+            <div className="covid-info-container">
+                <div className="covid-info">
                     {props.warningMessage} Visit the <a className="cdc-link"
                 href='https://www.cdc.gov/coronavirus/2019-ncov/travelers/map-and-travel-notices.html' target='_blank' 
                     rel="noreferrer">CDC </a>
