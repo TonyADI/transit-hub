@@ -16,8 +16,11 @@
 }
 
 .business-container a > h2 {
+  overflow: hidden;
   text-align: left;
   text-decoration: none !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .business-container .business-image-container {
@@ -57,7 +60,6 @@
 }
 
 .business-reviews h3 {
-  color: #CCA353;
   font-weight: 600;
   margin: 0;
   padding: 0;

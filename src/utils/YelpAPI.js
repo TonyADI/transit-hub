@@ -14,6 +14,7 @@ const businessSearch = async (term, location) => {
                 state: business.location.state,
                 zipCode: business.location.zipCode,
                 category: business.categories[0].title,
+                price: business.price,
                 rating: business.rating,
                 reviewCount: business.review_count,
                 url: business.url
