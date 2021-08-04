@@ -9,11 +9,18 @@
 
 .country-details {
     text-align: left;
+    max-width: 150px;
+}
+
+.text-overflow-el {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .country-flag {
     max-width: 50px;
-    margin-bottom: 2px; /* temporary fix */
+    margin-bottom: 2px;
     box-shadow: 1px 1px 2px #ccc;
 }
 
@@ -77,12 +84,13 @@ div.flex-direction-col > h3 {
     transform: translateY(-150px);
 }
 
+
 .slide-transition {
     animation: fade-out ease 1s 9s;
     z-index: 5 !important;
 }
-
-@keyframes fill-out {
-    from {background-size: 0% 100%;}
-    to {background-size: 100% 100%;}
+div.businesses-container div > h2 {
+    font-size: 32px;
+    font-weight: 400;
 }
+
