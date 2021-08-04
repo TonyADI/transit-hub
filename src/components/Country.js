@@ -3,68 +3,66 @@ import './Country.css';
 
 const Country = props => {
     return (
-        <div className="country-container body-padding">
-            <span className="country-name">{props.details.name}</span>
-            {props.details.capital ? <div className="flex-direction-row
+        <div className="country-container body-padding
+        body-margin">
+            <span className="country-name">{props.details.name || 'Destination'}</span>
+            <div className="flex-direction-row
             country-details-container body-padding">
                 <div className="country-details flex-direction-col">
                     <div className="flex-direction-col">
                         <h3>Capital</h3>
-                        <span>{props.details.capital}</span>
+                        <span className="text-overflow-el">
+                            {props.details.capital || '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Population</h3>
-                        <span>{props.details.population.toLocaleString('en', 
-                        {useGrouping:true})}</span>
+                        <span>{props.details.population ? 
+                        props.details.population.toLocaleString('en', 
+                        {useGrouping:true}) : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Region</h3>
-                        <span>{props.details.region}</span>
+                        <span>{props.details.region || '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Time Zone</h3>
-                        <span>{props.details.timezones[0]}</span>
+                        <span>{props.details.timezones ? props.details.timezones[0] 
+                        : '-'}</span>
                     </div>
                 </div>
 
-                {props.photos.length ? props.photos.map(photo => 
-                    <div className="country-images-container" id={photo.id} >
-                        <img src={photo.imgUrl} alt={photo.descrp} />
-                    </div>) :
-                <div>No Images</div>}
+                <div className="country-images-container">
+                    {props.photos.length ? props.photos.map(photo =>
+                            <img src={photo.imgUrl} alt={photo.descrp} />):
+                    'No Images'
+                }
+                </div>
 
                 <div className="country-details flex-direction-col">
                     <div className="flex-direction-col">
                         <h3>Calling Code</h3>
-                        <span>{props.details.callingCodes[0]}</span>
+                        <span>{props.details.callingCodes ?
+                         props.details.callingCodes[0] : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Currency</h3>
-                        <span>{`${props.details.currencies[0].name} 
-                        ${props.details.currencies[0].symbol}`} </span>
+                        <span className="text-overflow-el">{props.details.currencies ? 
+                        `${props.details.currencies[0].name} 
+                        ${props.details.currencies[0].symbol}` : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Language</h3>
-                        <span>{props.details.languages[0].name}</span>
+                        <span>{props.details.languages ? 
+                        props.details.languages[0].name  : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Flag</h3>
-                        <img alt={`${props.details.name} flag`}
-                        src={'https://restcountries.eu/data/jpn.svg'} 
-                        className="country-flag"/>
+                        {props.details.flag ? <img alt={`${props.details.name} flag`}
+                        src={props.details.flag} 
+                        className="country-flag"/> : '-'}
                     </div>
                 </div>
             </div>
-            :
-            <div>
-                We could not find any information on the supplied location. 
-                Try a different location.
-                </div>
-            }
-            <br />
-            <br />
-            <br />
-            <br />
             <div className="covid-info-container">
                 <div className="covid-info">
                     {props.warningMessage} Visit the <a className="cdc-link"
@@ -76,40 +74,46 @@ const Country = props => {
                     `linear-gradient(${props.bgColor}, ${props.bgColor})`}}>
                     Covid-19: Level {props.covidLevel}
                 </div>
-                {props.covidData.Confirmed && <div className="body-padding
+                <div className="body-padding
                 flex-direction-row">
                     <div className="flex-direction-col">
                         <h3>Total Confirmed Cases</h3>
-                        <span>{props.covidData.Confirmed.toLocaleString('en', 
-                            {useGrouping:true})}</span>
+                        <span>{props.covidData.Confirmed ? 
+                        props.covidData.Confirmed.toLocaleString('en', 
+                            {useGrouping:true}) : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Total Deaths</h3>
-                        <span>{props.covidData.Deaths.toLocaleString('en', 
-                            {useGrouping:true})}</span>
+                        <span>{props.covidData.Deaths ? 
+                        props.covidData.Deaths.toLocaleString('en', 
+                            {useGrouping:true}) : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Total Recovered</h3>
-                        <span>{props.covidData.Recovered.toLocaleString('en', 
-                            {useGrouping:true})}</span>
+                        <span>{props.covidData.Recovered ? 
+                        props.covidData.Recovered.toLocaleString('en', 
+                            {useGrouping:true}) : '-'}</span>
                     </div>
                     <div className="flex-direction-col">
                         <h3>Active Cases</h3>
-                        <span>{props.covidData.Active.toLocaleString('en', 
-                            {useGrouping:true})}</span>
+                        <span>{props.covidData.Active ? 
+                        props.covidData.Active.toLocaleString('en', 
+                            {useGrouping:true}) : '-'}</span>
                     </div>
-                </div>}
-            </div>
-            <div>
-                <h2>Hotels</h2>
-                <div>
-                    <BusinessList businesses={props.hotels}/>
                 </div>
             </div>
-            <div>
-                <h2>Tourist Attractions</h2>
+            <div className="businesses-container body-margin">
                 <div>
-                    <BusinessList businesses={props.attractions}/>
+                    <h2>Hotels</h2>
+                    <div>
+                        <BusinessList businesses={props.hotels}/>
+                    </div>
+                </div>
+                <div>
+                    <h2>Tourist Attractions</h2>
+                    <div>
+                        <BusinessList businesses={props.attractions}/>
+                    </div>
                 </div>
             </div>
         </div>
