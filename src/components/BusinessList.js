@@ -7,7 +7,7 @@ const BusinessList = props => {
             {!props.loading ? props.businesses ? 
             props.businesses.map(business => 
             { return <Business key={business.id} business={business}/>}) : 
-            <div>No businesses found. Try different search parameters</div>
+            <div>This service may not be available at this location. Try a different location.</div>
             :<div className="loading">
                 <div></div><div></div><div></div>
                 </div>}
