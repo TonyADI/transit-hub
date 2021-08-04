@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import hero_bg1 from '../assets/images/hero-bg.jpg';
+import hero_bg2 from '../assets/images/hero-bg2.jpg';
+import hero_bg3 from '../assets/images/hero-bg3.jpg';
+import hero_bg4 from '../assets/images/hero-bg4.jpg';
+import hero_bg5 from '../assets/images/hero-bg5.jpg';
 import Country from '../components/Country';
+import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import UserAuthentication from '../components/UserAuthentication';
 import businessSearch from '../utils/YelpAPI';
 import covidSearch from '../utils/Covid19API';
-import countries from '../utils/CovidTravelAdvisory';
+import countries, { levelOne } from '../utils/CovidTravelAdvisory';
 import countrySearch from '../utils/RestCountriesAPI';
 import photoSearch from '../utils/UnsplashAPI';
 import './App.css';
@@ -21,28 +26,47 @@ const App = () => {
   const [photos, setPhotos] = useState([]);
   const [warningMessage, setWarningMessage] = useState('');
 
+  // Update search term
   const handleChange = term => {
     setCountry(term);
   }
 
+  // Run search term through all APIs
   const handleClick = () => {
-    photoSearch(country).then(photos => setPhotos(photos));
+    //photoSearch(country).then(photos => setPhotos(photos));
     countrySearch(country).then(details => setDetails(details));
     businessSearch('hotels', country).then(hotels => setHotels(hotels));
     businessSearch('attractions', country).then(attractions => setAttractions(attractions));
     covidSearch(country).then(data => setCovidData(data));
     const capitalizedCountry = country[0].toUpperCase() + country.slice(1);
-    setCovidLevel(countries[capitalizedCountry]);
+    setCovidLevel(countries[capitalizedCountry] || 'Not Found');
   }
 
+  const selectRandomCountry = () => {
+    const index = Math.floor(Math.random() * levelOne.length);
+    setCountry(levelOne[index]);
+    setCovidLevel('One')
+    handleClick();
+  }
+
+  // Change country to japan
   useEffect(() => {
-    //photoSearch(country).then(photos => setPhotos(photos));
-    countrySearch(country).then(details => setDetails(details));
-    businessSearch('hotels', country).then(hotels => setHotels(hotels));
-    //businessSearch('attractions', country).then(attractions => setAttractions(attractions));
-    //covidSearch(country).then(data => setCovidData(data));
-    const capitalizedCountry = country[0].toUpperCase() + country.slice(1);
-    setCovidLevel(countries[capitalizedCountry]);
+    /*
+    photoSearch('Japan').then(photos => setPhotos(photos));
+    countrySearch('Japan').then(details => setDetails(details));
+    businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
+    businessSearch('attractions', 'Japan').then(attractions => setAttractions(attractions));
+    covidSearch('Japan').then(data => setCovidData(data));
+    setCovidLevel(countries['Japan']);
+    */
+  }, [])
+
+  // Select random hero background everytime app runs
+  useEffect(() => {
+    const backgrounds = [hero_bg1, hero_bg2, hero_bg3, hero_bg4, hero_bg5];
+    const newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)]
+    document.querySelector('.hero-container').style.backgroundImage = 
+    `url(${newBackground})`;
   }, [])
 
   /*
@@ -62,7 +86,7 @@ const App = () => {
     }, 10000)
   }, [details])*/
 
-  // Rerun animation when covid level changes
+  // Rerun animation when covid level changes, currently not working
   useEffect(() => {
     document.querySelector('.travel-advisory').style.animation = '';
     document.querySelector('.travel-advisory').style.animation = 'fill-out 1s ease forwards';
@@ -71,32 +95,36 @@ const App = () => {
   
   useEffect(() => {
     switch(covidLevel){
-        case 'one':
+        case 'One':
           setBgColor('#FFD885');
-          setWarningMessage('Nonessential travel is permitted.')
+          setWarningMessage('Nonessential travel is permitted.');
             break;
-        case 'two':
+        case 'Two':
           setBgColor('#EF852B');
           setWarningMessage(`Unvaccinated travelers who are at increased 
             risk for severe illness from COVID-19 should avoid 
-            nonessential travel to the this location.`)
+            nonessential travel to the this location.`);
             break;
-        case 'three':
+        case 'Three':
           setBgColor('#E34E27');
           setWarningMessage(`Unvaccinated travelers should avoid 
-            nonessential travel to this location.`)
+            nonessential travel to this location.`);
             break;
-        case 'four':
+        case 'Four':
           setBgColor('#AD363A');
           setWarningMessage(`Avoid travel to this location. If you 
             must travel to this location, make sure you are 
-            fully vaccinated.`)
+            fully vaccinated.`);
             break;
-        case 'unknown':
+        case 'Unknown':
           setBgColor('#666');
+          setWarningMessage(`Avoid travel to this location. If you 
+            must travel to this location, make sure you are 
+            fully vaccinated.`);
             break;
         default:
           setBgColor('#666');
+          setWarningMessage(`Unknown location. Travel at your own risk.`);
     }
   }, [covidLevel])
   
@@ -109,7 +137,7 @@ const App = () => {
           <div className="hero-body">
             <span className="hero-heading">
               One-stop shop for all your travel needs</span>
-            <button className="hero-bt">
+            <button className="hero-bt" onClick={selectRandomCountry}>
               <span>Take me away</span>
             </button>
           </div>
@@ -117,12 +145,11 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="countries-container">
-          <Country photos={photos} details={details}
+      <Country photos={photos} details={details}
           hotels={hotels} covidData={covidData} attractions={attractions}
           covidLevel={covidLevel} bgColor={bgColor}
           warningMessage={warningMessage}/>
-      </div>
+      <Footer />
     </div>
   );
 }
