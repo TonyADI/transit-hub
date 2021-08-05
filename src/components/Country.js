@@ -4,7 +4,7 @@ import './Country.css';
 const Country = props => {
     return (
         <div className="country-container body-padding
-        body-margin">
+        body-margin" id={props.id}>
             <span className="country-name">{props.details.name || 'Destination'}</span>
             <div className="flex-direction-row
             country-details-container body-padding">
