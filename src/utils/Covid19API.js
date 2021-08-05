@@ -3,7 +3,7 @@ const covidSearch = async country => {
         let hyphenCountry = country.replace(' ', '-');
         const response = await fetch(`https://api.covid19api.com/total/country/${hyphenCountry}`);
         const jsonResponse = await response.json();
-        return Array.isArray(jsonResponse) ? jsonResponse.pop() :
+        return Array.isArray(jsonResponse) && jsonResponse.pop() ? jsonResponse.pop() :
         {};
     }
     catch(error){
