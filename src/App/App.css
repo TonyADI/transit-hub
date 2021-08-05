@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  /*Inter,"Helvetica Neue",Arial,"Noto Sans",sans-serif;*/
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .body-padding{
@@ -9,7 +12,7 @@
 }
 
 .body-margin {
-  margin-top: 60px !important;
+  padding-top: 70px !important;
   margin-bottom: 60px !important;
 }
 
