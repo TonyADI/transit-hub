@@ -142,3 +142,10 @@
   from {background-color: rgba(0,0,0,1);}
   to {background-color: rgba(0,0,0,0.3);}
 }
+
+@keyframes slideshow {
+  0% {opacity:1;}
+  25% {opacity:1;}
+  26% {opacity: 0;}
+  100% {opacity: 0;}
+}

@@ -26,17 +26,20 @@
 
 .country-images-container {
     border-radius: 10px;
-    left: 50%;
-    max-width: 700px;
-    max-height: 350px;
-    opacity: 1;
+    position: relative;
+    width: 60%;
+    height: auto;
     overflow: hidden;
-    position: absolute;
-    top: 7%;
-    transform: translateX(-50%);
 }
 
 .country-images-container img{
+    border-radius: 10px;
+    height: auto;
+    left: 50%;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    transform: translateX(-50%);
     width: 100%;
 }
 
@@ -49,13 +52,14 @@
 }
 
 .country-container .travel-advisory {
-    animation: fill-out 1s ease forwards;
+    animation: fade-in 1s ease forwards;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 0% 100%;
+    background-size: 100% 100%;
     border-radius: 10px;
     color: #fff;
     font-size: 20px;
+    opacity: 0;
     padding: 15px 0;
 }
 
@@ -84,13 +88,28 @@ div.flex-direction-col > h3 {
     transform: translateY(-150px);
 }
 
-
-.slide-transition {
-    animation: fade-out ease 1s 9s;
-    z-index: 5 !important;
-}
 div.businesses-container div > h2 {
     font-size: 32px;
     font-weight: 400;
 }
 
+
+div.country-images-container img {
+    animation: slideshow 40s infinite;
+}
+
+div.country-images-container img:nth-child(1){
+    animation-delay: 30s;
+}
+
+div.country-images-container img:nth-child(2){
+    animation-delay: 20s;
+}
+
+div.country-images-container img:nth-child(3){
+    animation-delay: 10s;
+}
+
+div.country-images-container img:nth-child(4){
+    animation-delay: 0s;
+}
