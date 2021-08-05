@@ -40,6 +40,7 @@ const App = () => {
     covidSearch(term).then(data => setCovidData(data));
     const capitalizedCountry = term[0].toUpperCase() + term.slice(1);
     setCovidLevel(countries[capitalizedCountry] || 'Not Found');
+    document.getElementById('hero-link').click()
   }
 
   const selectRandomCountry = () => {
@@ -120,9 +121,10 @@ const App = () => {
           <div className="hero-body">
             <span className="hero-heading">
               One-stop shop for all your travel needs</span>
-            <button className="hero-bt" onClick={selectRandomCountry}>
+            <a id="hero-link" href='#destination'>
+              <button className="hero-bt" onClick={selectRandomCountry}>
               <span>Take me away</span>
-            </button>
+            </button></a>
           </div>
           <div>
           </div>
@@ -131,7 +133,7 @@ const App = () => {
       <Country photos={photos} details={details}
           hotels={hotels} covidData={covidData} attractions={attractions}
           covidLevel={covidLevel} bgColor={bgColor}
-          warningMessage={warningMessage}/>
+          warningMessage={warningMessage} id={'destination'}/>
       <Footer />
     </div>
   );
