@@ -52,13 +52,11 @@ const App = () => {
 
   useEffect(() => {
     photoSearch('Japan').then(photos => setPhotos(photos));
-    /*
     countrySearch('Japan').then(details => setDetails(details));
     businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
     businessSearch('attractions', 'Japan').then(attractions => setAttractions(attractions));
     covidSearch('Japan').then(data => setCovidData(data));
     setCovidLevel(countries['Japan']);
-    */
   }, [])
 
   // Select random hero background everytime app runs
@@ -68,14 +66,6 @@ const App = () => {
     document.querySelector('.hero-container').style.backgroundImage = 
     `url(${newBackground})`;
   }, [])
-
-  // Rerun animation when covid level changes, currently not working
-  /*
-  useEffect(() => {
-    document.querySelector('.travel-advisory').style.animation = '';
-    document.querySelector('.travel-advisory').style.animation = 'fill-out 1s ease forwards';
-  }, [bgColor])
-*/
   
   useEffect(() => {
     switch(covidLevel){

@@ -152,3 +152,78 @@ html {
   26% {opacity: 0;}
   100% {opacity: 0;}
 }
+
+
+@media only screen and (max-width: 450px){
+  .App {
+    font-size: 12px;
+  }
+  .hero-body {
+    width: 90%;
+  }
+  .hero-heading {
+    font-size: 40px;
+  }
+  .hero-bt {
+    width: 50% !important;
+  }
+  .country-details, .covid-info, 
+  div.covid-info-container div.body-padding,
+  .searchbar input  {
+    font-size: 12px;
+  }
+  /* change these */
+  .body-padding {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .body-margin {
+    padding-top: 50px !important;
+  }
+  .travel-advisory {
+    font-size: 15px !important;
+  }
+  div.covid-info-container div.body-padding,
+  .country-details-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  div.country-details-container {
+    flex-direction: column !important;
+  }
+  div.businesses-container div > h2 {
+    font-size: 24px !important;
+  }
+  .login-bt-container, .logo-link-container {
+    display: none;
+  }
+  .searchbar .input-container {
+    width: 100%;
+  }
+  .searchbar input {
+    text-align: center !important;
+  }
+  .country-images-container {
+    order: 1;
+    width: 100%;
+    min-height: 250px;
+  }
+  .country-details {
+    order: 3;
+    flex-direction: row !important;
+    max-width: initial !important;
+    text-align: center !important;
+  }
+  .country-details > div.flex-direction-col {
+    justify-content: initial;
+  }
+  .country-flag {
+    margin: auto;
+  }
+  .country-container .country-details > div {
+    flex: 25%;
+  }
+  .country-name {
+    font-size: 30px;
+  }
+}
