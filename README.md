@@ -21,7 +21,7 @@ Transit hub helps users find useful information on travel locations. Users input
 ### Country Section
 ![Country Section](https://github.com/TonyADI/transit-hub/blob/main/src/assets/images/screenshot1.png?raw=true)
 <br />
-### Hotel/Tourist Attraction Section
+### Hotel | Tourist Attraction Section
 ![Hotel/Tourist Attraction Section](https://github.com/TonyADI/transit-hub/blob/main/src/assets/images/screenshot2.png?raw=true)
 
 ## Resources Used
@@ -35,3 +35,7 @@ Unsplash Api - https://unsplash.com/documentation
 <br>
 Yelp Api - https://www.yelp.com/developers/documentation/v3
 
+## ToDo
+- Add loading animations.
+- Optimize images to improve app performance.
+- Add animation on scroll.
