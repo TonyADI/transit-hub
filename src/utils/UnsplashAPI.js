@@ -1,4 +1,4 @@
-const client_id = 'T0jCXzIigIBjuwNApWDyTtpNs_xUi2Lu1hWOBMjKFFs';
+const client_id = '';
 
 const photoSearch = async term => {
     const response = await fetch(`https://api.unsplash.com/search/photos?per_page=4&page=1&query=${term}&orientation=landscape&client_id=${client_id}`);

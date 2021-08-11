@@ -1,4 +1,4 @@
-const apiKey = 'LlSYNgI-7ENc8EmHArpfRTuubr23UHpFcmuicwiTyg6UI3nM_ojuk0SLQ6xwT4mCMGdd8OiV75aQOrZcGMgp2qgxFJKY89tmB1mrpkzqWvn09Bk30YUPl099k8Z8YHYx';
+const apiKey = '';
 const businessSearch = async (term, location) => {
     try {
         const response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&limit=8&location=${location}`,
