@@ -30,7 +30,7 @@ html {
 
 .hero-container{
   animation: hero-resize 0.75s 1.05s forwards;
-  background-image: url('../assets/images/hero-bg2.jpg');
+  background-color: #000;
   background-position: center;
   background-size: cover;
   height: 100vh;
