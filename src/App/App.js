@@ -33,7 +33,11 @@ const App = () => {
 
   // Run search term through all APIs
   const handleClick = (term = country) => {
-    //photoSearch(term).then(photos => setPhotos(photos));
+    setLoading(true);
+    photoSearch(term).then(photos => {
+      setPhotos(photos);
+      setLoading(false)
+    });
     countrySearch(term).then(details => setDetails(details));
     businessSearch('hotels', term).then(hotels => setHotels(hotels));
     businessSearch('attractions', term).then(attractions => setAttractions(attractions));
@@ -51,7 +55,11 @@ const App = () => {
   }
 
   useEffect(() => {
-    photoSearch('Japan').then(photos => setPhotos(photos));
+    setLoading(true);
+    photoSearch('Japan').then(photos => {
+      setPhotos(photos);
+      setLoading(false)
+    });
     countrySearch('Japan').then(details => setDetails(details));
     businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
     businessSearch('attractions', 'Japan').then(attractions => setAttractions(attractions));
@@ -122,7 +130,7 @@ const App = () => {
       </div>
       <Country photos={photos} details={details}
           hotels={hotels} covidData={covidData} attractions={attractions}
-          covidLevel={covidLevel} bgColor={bgColor}
+          covidLevel={covidLevel} bgColor={bgColor} loading={loading}
           warningMessage={warningMessage} id={'destination'}/>
       <Footer />
     </div>
