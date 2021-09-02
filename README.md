@@ -24,6 +24,15 @@ Transit hub helps users find useful information on travel locations. Users input
 ### Hotel | Tourist Attraction Section
 ![Hotel/Tourist Attraction Section](https://github.com/TonyADI/transit-hub/blob/main/src/assets/images/screenshot2.png?raw=true)
 
+## Future Features
+- [ ] Flight planner
+
+## Installation
+The project is currently live at https://tonyadi.com/apps/transit-hub.html or clone it to your machine using `git clone https://github.com/TonyADI/transit-hub.git`
+
+## Instructions
+The application uses the cors anywhere proxy at https://cors-anywhere.herokuapp.com/corsdemo. Navigate to the website and request temporary access. The images should load after that.
+
 ## Resources Used
 Covid-19 Api - https://covid19api.com/
 <br>
@@ -36,6 +45,6 @@ Unsplash Api - https://unsplash.com/documentation
 Yelp Api - https://www.yelp.com/developers/documentation/v3
 
 ## ToDo
-- Add loading animations.
-- Optimize images to improve app performance.
-- Add animation on scroll.
+- [ ] Add loading animations.
+- [ ] Optimize images to improve app performance.
+- [ ] Add animation on scroll.
