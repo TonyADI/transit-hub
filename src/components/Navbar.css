@@ -10,7 +10,7 @@
     display: flex;
     flex: 1;
     justify-content: space-between;
-    padding: 15px;
+    padding: 15px var(--body-padding);
 }
 
 .navbar .logo-link {
@@ -38,6 +38,12 @@
     border: 0.25px solid #ccc !important;
     box-shadow: 0px 0px 2px #ddd;
     cursor: pointer;
+    transition: all 0.35s;
+}
+
+.navbar .login-bt:hover {
+    background-color: #396ae6;
+    color: #fff;
 }
 
 .navbar .navbar-rnd{
