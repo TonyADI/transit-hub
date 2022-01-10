@@ -1,15 +1,28 @@
+.country-container {
+    margin: var(--body-margin) 0;
+}
+
 .country-name {
     font-size: 40px;
 }
 
 .country-details-container {
-    padding: 20px 0px;
+    padding: 20px var(--body-padding);
     position: relative;
 }
 
 .country-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: left;
     max-width: 150px;
+}
+
+.loading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .text-overflow-el {
@@ -34,7 +47,7 @@
 
 .country-images-container img{
     border-radius: 10px;
-    height: auto;
+    height: 100%;
     left: 50%;
     overflow: hidden;
     opacity: 0;
@@ -44,40 +57,13 @@
 }
 
 .country-container div div div > span, 
-.country-container div.flex-direction-row div > span {
-    animation: fade-up 0.75s 0.5s forwards;
+.country-container div.flex-direction div > span {
     color: #666;
     opacity: 0;
     transform: translateY(50px);
 }
 
-.country-container .travel-advisory {
-    animation: fade-in 1s ease forwards;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 20px;
-    opacity: 0;
-    padding: 15px 0;
-}
-
-.cdc-link {
-    color: rgb(58, 106, 228);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.country-container .covid-info {
-    animation: fade-in 1s ease forwards;
-    color: #444;
-    opacity: 0;
-    padding: 10px 0;
-}
-
-.country-container .country-details > div,
-div.country-container div.covid-info-container div > div {
+.country-container .country-details > div {
     overflow: hidden;
 }
 
