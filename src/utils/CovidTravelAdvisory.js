@@ -1,4 +1,4 @@
-const levelFour = ['Argentina',' Bahrain','Bangladesh','Bolivia','Botswana','Brazil'
+export const levelFour = ['Argentina',' Bahrain','Bangladesh','Bolivia','Botswana','Brazil'
     ,'British Virgin Islands','Burma (Myanmar)','Burundi','Central African Republic'
     ,'Chile','Colombia','Congo','Costa Rica','Cuba','Cyprus','Democratic Republic of the Congo'
     ,'Fiji','French Guiana','Georgia','Guinea-Bissau','Haiti','Indonesia','Iraq','Kyrgyzstan'
@@ -8,7 +8,7 @@ const levelFour = ['Argentina',' Bahrain','Bangladesh','Bolivia','Botswana','Bra
     ,'South Africa','South Sudan','Spain','Sudan','Suriname','Syria','Tunisia','Trinidad and Tobago'
     ,'Uganda','United Arab Emirates','United Kingdom','Uruguay','Zambia','Zimbabwe'];
 
-const levelThree = ['Afghanistan','Andorra','Armenia','Aruba','Bahamas, The','Belarus',
+export const levelThree = ['Afghanistan','Andorra','Armenia','Aruba','Bahamas, The','Belarus',
     'Belgium','Belize','Cambodia','Canada','Cape Verde','Denmark','Dominican Republic',
     'Easter Islandcuador','Egypt','Estoni','Eswatini','Faroe Islands','France','Greece',
     'Guadeloupe','Guatemala','Guyana','Honduras','India','Iran','Ireland','Isle of Man',
@@ -18,7 +18,7 @@ const levelThree = ['Afghanistan','Andorra','Armenia','Aruba','Bahamas, The','Be
     'Saint Vincent and Grenadines','Sint Maarten','Slovenia','Sri Lanka','Sweden','Switzerland',
     'Thailand','Timor-Leste (East Timor)','Turkey', 'Virgin Islands, U.S'];
 
-const levelTwo = ['Angola','Austria','Barbados','Bonaire','Cameroon','Croatia','Curaçao',
+export const levelTwo = ['Angola','Austria','Barbados','Bonaire','Cameroon','Croatia','Curaçao',
     'Czech Republic','El Salvador','Ethiopia','Finland','Germany','Guam','Guinea','Jamaica',
     'Kenya','Madeira Islands','Mauritania','Morocco','Pakistan','Puerto Rico (U.S.)','Senegal',
     'Serbia','Ukraine'];
@@ -35,7 +35,7 @@ export const levelOne = ['Albania','American Samoa','Anguilla','Antigua and Barb
     'Singapore','Sint Eustatius','Slovakia','South Korea','Taiwan','Togo',
     'Turks and Caicos Islands (U.K.)','Vietnam'];
 
-const levelUnknown = ['Algeria','Antarctica','Azores','Bhutan','Canary Islands',
+export const levelUnknown = ['Algeria','Antarctica','Azores','Bhutan','Canary Islands',
     'Christmas Island','Cocos (Keeling) Islands','Cook Islands','Eritrea','Gibraltar',
     'Guernsey','Jersey (part of the UK)','Kiribati','Macau SAR','Mayotte','Monaco',
     'Nauru','Niue','Norfolk Island','North Korea','Pitcairn Islands (U.K.)','Saint Helena',
