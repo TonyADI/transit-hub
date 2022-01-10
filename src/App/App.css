@@ -1,30 +1,33 @@
 .App {
+  font-family: 'lato', sans-serif;
   text-align: center;
+  --body-padding: 80px;
+  --body-margin: 60px;
+  --body-color: #050F19;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.body-padding{
-  padding-left: 80px !important;
-  padding-right: 80px !important;
+main {
+  color: var(--body-color);
+  padding: 0 var(--body-padding);
 }
 
-.body-margin {
-  padding-top: 70px !important;
-  margin-bottom: 60px !important;
+.businesses-container {
+  margin: var(--body-margin) 0;
 }
 
 .flex-direction-col {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.flex-direction-row {
-  display: flex !important;
-  flex-direction: row !important;
+.flex-direction {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -63,7 +66,7 @@ html {
   padding: 15px 20px;
   height: 50px;
   transform: translateY(70px);
-  width: 50px;
+  min-width: 200px;
   transition: background-size 0.5s, color 0.25s;
   /*width max-content, height: auto */
 }
@@ -94,6 +97,10 @@ html {
   top: 0;
   position: absolute;
   width: inherit;
+}
+
+.fade-up {
+  animation: fade-up 0.75s 0.5s forwards;
 }
 
 @keyframes drop-down {
@@ -154,8 +161,10 @@ html {
 }
 
 
-@media only screen and (max-width: 450px){
+@media only screen and (max-width: 790px){
   .App {
+    --body-padding: 20px;
+    --body-margin: 40px;
     font-size: 12px;
   }
   .hero-body {
@@ -165,34 +174,22 @@ html {
     font-size: 40px;
   }
   .hero-bt {
-    width: 50% !important;
+    min-width: 70%;
   }
-  .country-details, .covid-info, 
-  div.covid-info-container div.body-padding,
-  .searchbar input  {
+  .country-container {
+    margin-bottom: 0;
+  }
+  .country-details, .covid-info {
     font-size: 12px;
   }
-  /* change these */
-  .body-padding {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-  .body-margin {
-    padding-top: 50px !important;
-  }
   .travel-advisory {
-    font-size: 15px !important;
+    font-size: 15px;
   }
-  div.covid-info-container div.body-padding,
-  .country-details-container {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  div.country-details-container {
-    flex-direction: column !important;
+  div.country-details-container, div.flex-direction {
+    flex-direction: column;
   }
   div.businesses-container div > h2 {
-    font-size: 24px !important;
+    font-size: 24px;
   }
   .login-bt-container, .logo-link-container {
     display: none;
@@ -201,18 +198,19 @@ html {
     width: 100%;
   }
   .searchbar input {
-    text-align: center !important;
+    text-align: center;
   }
   .country-images-container {
     order: 1;
     width: 100%;
-    min-height: 250px;
+    min-height: 60vw;
   }
   .country-details {
     order: 3;
-    flex-direction: row !important;
-    max-width: initial !important;
-    text-align: center !important;
+    flex-direction: row;
+    max-width: initial;
+    text-align: center;
+    flex-wrap: wrap;
   }
   .country-details > div.flex-direction-col {
     justify-content: initial;
@@ -221,7 +219,7 @@ html {
     margin: auto;
   }
   .country-container .country-details > div {
-    flex: 25%;
+    flex: 50% 1;
   }
   .country-name {
     font-size: 30px;
