@@ -1,0 +1,39 @@
+.covid-info {
+    animation: fade-in 1s ease forwards;
+    color: #444;
+    opacity: 0;
+    padding: 10px 0;
+}
+
+div.covid-info-container div > div {
+    overflow: hidden;
+}
+
+div.flex-direction div > span {
+    animation: fade-up 0.75s 0.5s forwards;
+    color: #666;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.cdc-link {
+    color: rgb(58, 106, 228);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.covid-stats {
+    padding: 0 var(--body-padding);
+}
+
+.travel-advisory {
+    animation: fade-in 1s ease forwards;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0;
+    padding: 15px 0;
+}
