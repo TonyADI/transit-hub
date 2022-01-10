@@ -4,7 +4,10 @@ import hero_bg2 from '../assets/images/hero-bg2.jpg';
 import hero_bg3 from '../assets/images/hero-bg3.jpg';
 import hero_bg4 from '../assets/images/hero-bg4.jpg';
 import hero_bg5 from '../assets/images/hero-bg5.jpg';
+import BusinessList from '../components/BusinessList';
+import CovidInfo from '../components/CovidInfo';
 import Country from '../components/Country';
+import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import businessSearch from '../utils/YelpAPI';
@@ -40,7 +43,8 @@ const App = () => {
     });
     countrySearch(term).then(details => setDetails(details));
     businessSearch('hotels', term).then(hotels => setHotels(hotels));
-    businessSearch('attractions', term).then(attractions => setAttractions(attractions));
+    businessSearch('attractions', term).then(attractions => 
+      setAttractions(attractions));
     covidSearch(term).then(data => setCovidData(data));
     const capitalizedCountry = term[0].toUpperCase() + term.slice(1);
     setCovidLevel(countries[capitalizedCountry] || 'Not Found');
@@ -62,10 +66,11 @@ const App = () => {
     });
     countrySearch('Japan').then(details => setDetails(details));
     businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
-    businessSearch('attractions', 'Japan').then(attractions => setAttractions(attractions));
+    businessSearch('attractions', 'Japan').then(attractions => 
+      setAttractions(attractions));
     covidSearch('Japan').then(data => setCovidData(data));
     setCovidLevel(countries['Japan']);
-  }, [])
+  }, []);
 
   // Select random hero background everytime app runs
   useEffect(() => {
@@ -73,7 +78,7 @@ const App = () => {
     const newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)]
     document.querySelector('.hero-container').style.backgroundImage = 
     `url(${newBackground})`;
-  }, [])
+  }, []);
   
   useEffect(() => {
     switch(covidLevel){
@@ -108,30 +113,28 @@ const App = () => {
           setBgColor('#666');
           setWarningMessage(`Unknown location. Travel at your own risk.`);
     }
-  }, [covidLevel])
+  }, [covidLevel]);
   
   return (
     <div className="App">
-      {<Navbar term={country} handleChange={handleChange}
-      handleClick={handleClick}/>}
-      <div className="hero-container">
-        <div className="img-overlay">
-          <div className="hero-body">
-            <span className="hero-heading">
-              One-stop shop for all your travel needs</span>
-            <a id="hero-link" href='#destination'>
-              <button className="hero-bt" onClick={selectRandomCountry}>
-              <span>Take me away</span>
-            </button></a>
-          </div>
-          <div>
-          </div>
+      <Navbar term={country} handleChange={handleChange}
+      handleClick={handleClick}/>
+      <Hero handleClick={selectRandomCountry}/>
+      <main>
+        <Country photos={photos} loading={loading} capital={details.capital} 
+        population={details.population} region={details.region} 
+        timezones={details.timezones} callingCodes={details.callingCodes} 
+        currencies={details.currencies} languages={details.languages} 
+        flag={details.flag}/>
+        <CovidInfo warningMessage={warningMessage} covidLevel={covidLevel} 
+          bgColor={bgColor} confirmed={covidData.Confirmed} deaths={covidData.Deaths}
+          recovered={covidData.Recovered} active={covidData.Active}/>
+        <div className="businesses-container">
+          <BusinessList businesses={hotels} heading={'Hotels'}/>
+          <BusinessList businesses={attractions} 
+            heading={'Tourist Attractions'}/>
         </div>
-      </div>
-      <Country photos={photos} details={details}
-          hotels={hotels} covidData={covidData} attractions={attractions}
-          covidLevel={covidLevel} bgColor={bgColor} loading={loading}
-          warningMessage={warningMessage} id={'destination'}/>
+      </main>
       <Footer />
     </div>
   );
