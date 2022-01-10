@@ -1,28 +1,47 @@
+import PropTypes from 'prop-types';
 import './Business.css';
 
 const Business = props => {
 	return (
 		<div className="business-container">
-			<a href={props.business.url}>
+			<a href={props.url}>
 			  <div className="business-image-container">	  
-			    <img src={props.business.imageSrc} alt={props.business.name}/>
+			    <img src={props.imageSrc} alt={props.name}/>
 			  </div>
-			  <h2>{props.business.name}</h2>
+			  <h2>{props.name}</h2>
 			  <div className="business-info">
 			    <div className="business-address">
-			      <p>{props.business.address}</p>
-			      <p>{props.business.city}</p>
-			      <p>{props.business.state} {props.business.zipCode}</p>
+			      <p>{props.address}</p>
+			      <p>{props.city}</p>
+			      <p>{props.state} {props.zipCode}</p>
 			    </div>
 			    <div className="business-reviews">
-			      <h3>{props.business.price}</h3>
-			      <h3 className="business-rating">{props.business.rating} Stars</h3>
-			      <p>{props.business.reviewCount} reviews</p>
+			      <h3>{props.price}</h3>
+			      <h3 className="business-rating">{props.rating} Stars</h3>
+			      <p>{props.reviewCount} reviews</p>
     				</div>
   				</div>
 			  </a>
 		</div>
 	)
+}
+
+Business.propTypes = {
+	name: PropTypes.string
+}
+
+Business.defaultProps = {
+	address: 'N/A',
+	city: 'N/A',
+	category: 'N/A',
+	imageSrc: '',
+	name: 'N/A',
+	price: '0',
+	state: 'N/A',
+	rating: '0',
+	review: '0',
+	url: '',
+	zipcode: 'N/A'
 }
 
 export default Business;
