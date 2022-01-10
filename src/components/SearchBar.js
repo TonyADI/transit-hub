@@ -13,8 +13,10 @@ const Searchbar = props => {
         <div className="searchbar">
             <div className="input-container">
                 <input placeholder="Where would you like to go?"
-            value={props.term} onChange={handleChange}
-            onKeyPress={handleKeyPress}></input></div>
+                    value={props.term} onChange={handleChange}
+                    onKeyPress={handleKeyPress}>
+                </input>
+            </div>
         </div>
     )
 }
