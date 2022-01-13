@@ -12,25 +12,16 @@
   display: flex;
 }
 
-div.loading div{
-  animation: loading 2s infinite;
-  background-color: #28a745;
-  border-radius: 50%;
-  height: 10px;
-  margin: 10px;
-  width: 10px;
-}
-
-div.loading div:nth-child(2){
-  animation-delay: 0.25s;
-}
-
-div.loading div:nth-child(3){
-  animation-delay: 0.5s;
+div.loading {
+  animation: loading 1.5s linear infinite;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 5px solid #ccc;
+  border-top: 5px solid #396ae6;
+  padding: 20px;
 }
 
 @keyframes loading{
-  0%{background-color: #28a745; transform: scale(1,1);}
-  50%{background-color: #f0c36c; transform: scale(1.5,1.5);}
-  0%{background-color: #28a745; transform: scale(1,1);}
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }

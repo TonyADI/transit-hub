@@ -14,9 +14,6 @@ const BusinessList = props => {
                 zipcode={business.zipcode}/>}) : 
                 <div>This service may not be available at this location. Try a different location.</div>
                 :<div className="loading">
-                    <div></div>
-                    <div></div>
-                    <div></div>
                 </div>}
             </div>
         </div>
