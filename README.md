@@ -1,6 +1,8 @@
 # Transit Hub
 Transit hub helps users find useful information on travel locations. Users input a country and the app provides information on the country such as its covid 19 status, images, demographics, hotels and attractions. The app uses multiple APIs to accomplish these tasks. These include the YelpAPI, UnsplashAPI, RestCountriesAPI, and Covid19API.
 
+## Live Demo
+<a href="https://tonyadi.com/apps/transit-hub.html" target="_blank">Demo</a>
 ## Features
 ### Welcome Screen
 - The user is greeted by a pleasing animation which then reveals a navigation bar with a hyperlink that points to home, a search bar component that allows users to input the desired destination, and a login button that produces a modal box when clicked.
