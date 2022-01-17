@@ -3,6 +3,7 @@ Transit hub helps users find useful information on travel locations. Users input
 
 ## Live Demo
 <a href="https://tonyadi.com/apps/transit-hub.html" target="_blank">Demo</a>
+
 ## Features
 ### Welcome Screen
 - The user is greeted by a pleasing animation which then reveals a navigation bar with a hyperlink that points to home, a search bar component that allows users to input the desired destination, and a login button that produces a modal box when clicked.
