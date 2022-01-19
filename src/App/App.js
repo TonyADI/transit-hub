@@ -38,9 +38,8 @@ const App = () => {
   const handleClick = (term = country) => {
     setLoading(true);
     photoSearch(term).then(photos => {
-      setPhotos(photos);
-      setLoading(false)
-    });
+      setPhotos(photos);})
+      .finally(() => setLoading(false));
     countrySearch(term).then(details => setDetails(details));
     businessSearch('hotels', term).then(hotels => setHotels(hotels));
     businessSearch('attractions', term).then(attractions => 
@@ -61,9 +60,8 @@ const App = () => {
   useEffect(() => {
     setLoading(true);
     photoSearch('Japan').then(photos => {
-      setPhotos(photos);
-      setLoading(false)
-    });
+      setPhotos(photos);})
+      .finally(() => setLoading(false));
     countrySearch('Japan').then(details => setDetails(details));
     businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
     businessSearch('attractions', 'Japan').then(attractions => 
