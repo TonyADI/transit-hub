@@ -27,6 +27,7 @@ const App = () => {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
+  const [validCountry, setValidCountry] = useState(true);
   const [warningMessage, setWarningMessage] = useState('');
 
   // Update search term
@@ -35,38 +36,46 @@ const App = () => {
   }
 
   // Run search term through all APIs
-  const handleClick = (term = country) => {
+  const handleApiCalls = (term = country) => {
     setLoading(true);
     photoSearch(term).then(photos => {
       setPhotos(photos);})
+      .catch(error => console.log(error))
       .finally(() => setLoading(false));
-    countrySearch(term).then(details => setDetails(details));
+    countrySearch(term).then(details => {
+      setDetails(details)});
     businessSearch('hotels', term).then(hotels => setHotels(hotels));
     businessSearch('attractions', term).then(attractions => 
       setAttractions(attractions));
     covidSearch(term).then(data => setCovidData(data));
     const capitalizedCountry = term[0].toUpperCase() + term.slice(1);
     setCovidLevel(countries[capitalizedCountry] || 'Not Found');
-    document.getElementById('hero-link').click()
+    document.getElementById('hero-link').click();
+    document.querySelector('div.input-container input').blur();
   }
 
   const selectRandomCountry = () => {
     const index = Math.floor(Math.random() * levelOne.length);
     const country = levelOne[index];
     setCovidLevel('One')
-    handleClick(country);
+    handleApiCalls(country);
   }
 
   useEffect(() => {
     setLoading(true);
     photoSearch('Japan').then(photos => {
       setPhotos(photos);})
+      .catch(error => console.log(error))
       .finally(() => setLoading(false));
-    countrySearch('Japan').then(details => setDetails(details));
-    businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels));
+    countrySearch('Japan').then(details => setDetails(details))
+      .catch(error => console.log(error));
+    businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels))
+      .catch(error => console.log(error));
     businessSearch('attractions', 'Japan').then(attractions => 
-      setAttractions(attractions));
-    covidSearch('Japan').then(data => setCovidData(data));
+      setAttractions(attractions))
+      .catch(error => console.log(error));
+    covidSearch('Japan').then(data => setCovidData(data))
+      .catch(error => console.log(error));
     setCovidLevel(countries['Japan']);
   }, []);
 
@@ -115,22 +124,45 @@ const App = () => {
   
   return (
     <div className="App">
-      <Navbar term={country} handleChange={handleChange}
-      handleClick={handleClick}/>
+      <Navbar 
+        term={country} 
+        handleChange={handleChange}
+        handleClick={handleApiCalls}
+        validCountry={validCountry}
+      />
       <Hero handleClick={selectRandomCountry}/>
       <main>
-        <Country photos={photos} loading={loading} capital={details.capital} 
-        population={details.population} region={details.region} 
-        timezones={details.timezones} callingCodes={details.callingCodes} 
-        currencies={details.currencies} languages={details.languages} 
-        flag={details.flag}/>
-        <CovidInfo warningMessage={warningMessage} covidLevel={covidLevel} 
-          bgColor={bgColor} confirmed={covidData.Confirmed} deaths={covidData.Deaths}
-          recovered={covidData.Recovered} active={covidData.Active}/>
+        <Country 
+          photos={photos} 
+          loading={loading} 
+          capital={details.capital} 
+          population={details.population} 
+          region={details.region} 
+          timezones={details.timezones} 
+          callingCodes={details.callingCodes} 
+          currencies={details.currencies} 
+          languages={details.languages} 
+          flag={details.flag} 
+          name={details.name}
+        />
+        <CovidInfo 
+          warningMessage={warningMessage} 
+          covidLevel={covidLevel} 
+          bgColor={bgColor} 
+          confirmed={covidData.Confirmed} 
+          deaths={covidData.Deaths}
+          recovered={covidData.Recovered} 
+          active={covidData.Active}
+        />
         <div className="businesses-container">
-          <BusinessList businesses={hotels} heading={'Hotels'}/>
-          <BusinessList businesses={attractions} 
-            heading={'Tourist Attractions'}/>
+          <BusinessList 
+            businesses={hotels} 
+            heading={'Hotels'}
+          />
+          <BusinessList 
+            businesses={attractions} 
+            heading={'Tourist Attractions'}
+          />
         </div>
       </main>
       <Footer />
