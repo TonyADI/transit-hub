@@ -1,5 +1,5 @@
 .country-container {
-    margin: var(--body-margin) 0;
+    padding: var(--body-padding) 0;
 }
 
 .country-name {
