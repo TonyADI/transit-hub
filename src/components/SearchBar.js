@@ -12,9 +12,15 @@ const Searchbar = props => {
     return (
         <div className="searchbar">
             <div className="input-container">
-                <input placeholder="Where would you like to go?"
-                    value={props.term} onChange={handleChange}
-                    onKeyPress={handleKeyPress}>
+                <input placeholder="Enter a country..."
+                    value={props.term} 
+                    onChange={handleChange}
+                    onKeyPress={handleKeyPress}
+                    style={{outline: props.validCountry ? 
+                       '1px solid #ccc' :
+                       '1px solid #dc3545'
+                       }}
+                >
                 </input>
             </div>
         </div>
