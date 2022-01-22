@@ -35,20 +35,17 @@
 
 .navbar .login-bt {
     background-color: #fff;
+    border-radius: 45px;
     border: 0.25px solid #ccc !important;
     box-shadow: 0px 0px 2px #ddd;
     cursor: pointer;
     transition: all 0.35s;
+    padding: 15px 30px;
 }
 
 .navbar .login-bt:hover {
     background-color: #396ae6;
     color: #fff;
-}
-
-.navbar .navbar-rnd{
-    border-radius: 45px;
-    padding: 15px 20px;
 }
 
 @keyframes navbar-bckg{
