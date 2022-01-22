@@ -85,7 +85,7 @@ main {
   animation: drop-down 0.75s 2.25s forwards;
   color: #fff;
   font-size: 55px;
-  transform: translateY(-150px);
+  transform: translateY(-250px);
 }
 
 .img-overlay {
@@ -104,7 +104,7 @@ main {
 }
 
 @keyframes drop-down {
-  from {transform: translateY(-150px);}
+  from {transform: translateY(-250px);}
   to {transform: translateY(0);}
 }
 
