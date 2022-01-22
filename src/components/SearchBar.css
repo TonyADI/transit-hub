@@ -7,15 +7,20 @@
     border-radius: inherit;
     box-sizing: border-box;
     font-size: 14px;
-    padding: 15px 20px;
     outline: none;
+    padding: 15px 20px;
+    transition: outline 0.2s;
     width: 100%;
 }
 
 .searchbar .input-container{
-    border: 0.25px solid #ccc !important;
+    border: 0;
     border-radius: 45px;
     box-shadow: 0px 1px 4px #ccc;
     margin: auto;
     width: 60%;
+}
+
+.searchbar input:focus {
+    outline: 1px solid #396ae6 !important;
 }
