@@ -1,7 +1,7 @@
 const apiKey = '';
 const businessSearch = async (term, location) => {
     try {
-        const response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&limit=8&location=${location}`,
+        const response = await fetch(`https://desolate-headland-35675.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&limit=8&location=${location}`,
             { headers: { Authorization: `Bearer ${apiKey}` } });
         if(response.ok){
             const jsonResponse = await response.json();
