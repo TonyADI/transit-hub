@@ -2,7 +2,7 @@ import './Country.css';
 
 const Country = props => {
     return (
-        <div className="country-container">
+        <div className="country-container" id="destination">
             <span className="country-name">{props.name || 'Destination'}
             </span>
             <div className="flex-direction
