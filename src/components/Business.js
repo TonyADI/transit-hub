@@ -36,10 +36,10 @@ Business.defaultProps = {
 	category: 'N/A',
 	imageSrc: '',
 	name: 'N/A',
-	price: '0',
+	price: '',
 	state: 'N/A',
-	rating: '0',
-	review: '0',
+	rating: '',
+	review: '',
 	url: '',
 	zipcode: 'N/A'
 }
