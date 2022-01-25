@@ -19,38 +19,61 @@ import './App.css';
 
 const App = () => {
   const [attractions, setAttractions] = useState([]);
+  const [bgImage, setBgImage] = useState('');
   const [bgColor, setBgColor] = useState('');
   const [country, setCountry] = useState('japan');
   const [covidData, setCovidData] = useState({});
   const [covidLevel, setCovidLevel] = useState('');
   const [details, setDetails] = useState({});
   const [hotels, setHotels] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [hotelsLoading, setHotelsLoading] = useState(false);
+  const [attractionsLoading, setAttractionsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [validCountry, setValidCountry] = useState(true);
+  const [invalidCountry, setInvalidCountry] = useState(false);
   const [warningMessage, setWarningMessage] = useState('');
 
   // Update search term
   const handleChange = term => {
+    if(term === ''){
+      setInvalidCountry(false);
+    }
     setCountry(term);
   }
 
   // Run search term through all APIs
   const handleApiCalls = (term = country) => {
-    setLoading(true);
     photoSearch(term).then(photos => {
       setPhotos(photos);})
-      .catch(error => console.log(error))
-      .finally(() => setLoading(false));
+      .catch(error => console.log(error)
+    );
+
     countrySearch(term).then(details => {
-      setDetails(details)});
-    businessSearch('hotels', term).then(hotels => setHotels(hotels));
+      setInvalidCountry(details.status);
+      setDetails(details)})
+      .catch(error => console.log(error)
+    );
+
+    setHotelsLoading(true);
+    businessSearch('hotels', term).then(hotels => setHotels(hotels))
+      .catch(error => console.log(error))
+      .finally(() => setHotelsLoading(false)
+    );
+
+    setAttractionsLoading(true);
     businessSearch('attractions', term).then(attractions => 
-      setAttractions(attractions));
+      setAttractions(attractions))
+      .catch(error => console.log(error))
+      .finally(() => setAttractionsLoading(false)
+    );
+
     covidSearch(term).then(data => setCovidData(data));
     const capitalizedCountry = term[0].toUpperCase() + term.slice(1);
     setCovidLevel(countries[capitalizedCountry] || 'Not Found');
-    document.getElementById('hero-link').click();
+  }
+
+  const handleSearch = term => {
+    handleApiCalls(term);
+    window.location.assign('#destination');
     document.querySelector('div.input-container input').blur();
   }
 
@@ -62,29 +85,14 @@ const App = () => {
   }
 
   useEffect(() => {
-    setLoading(true);
-    photoSearch('Japan').then(photos => {
-      setPhotos(photos);})
-      .catch(error => console.log(error))
-      .finally(() => setLoading(false));
-    countrySearch('Japan').then(details => setDetails(details))
-      .catch(error => console.log(error));
-    businessSearch('hotels', 'Japan').then(hotels => setHotels(hotels))
-      .catch(error => console.log(error));
-    businessSearch('attractions', 'Japan').then(attractions => 
-      setAttractions(attractions))
-      .catch(error => console.log(error));
-    covidSearch('Japan').then(data => setCovidData(data))
-      .catch(error => console.log(error));
-    setCovidLevel(countries['Japan']);
+    handleApiCalls('Japan');
   }, []);
 
   // Select random hero background everytime app runs
   useEffect(() => {
-    const backgrounds = [hero_bg1, hero_bg2, hero_bg3, hero_bg4, hero_bg5];
+    const backgrounds = [hero_bg1,  hero_bg2,  hero_bg3, hero_bg4, hero_bg5];
     const newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-    document.querySelector('.hero-container').style.backgroundImage = 
-    `url(${newBackground})`;
+    setBgImage(newBackground);
   }, []);
   
   useEffect(() => {
@@ -127,14 +135,15 @@ const App = () => {
       <Navbar 
         term={country} 
         handleChange={handleChange}
-        handleClick={handleApiCalls}
-        validCountry={validCountry}
+        handleClick={handleSearch}
+        invalidCountry={invalidCountry}
       />
-      <Hero handleClick={selectRandomCountry}/>
+      <Hero 
+        backgroundImage={bgImage}
+        handleClick={selectRandomCountry}/>
       <main>
         <Country 
-          photos={photos} 
-          loading={loading} 
+          photos={photos}
           capital={details.capital} 
           population={details.population} 
           region={details.region} 
@@ -156,12 +165,14 @@ const App = () => {
         />
         <div className="businesses-container">
           <BusinessList 
-            businesses={hotels} 
+            businesses={hotels}
+            loading={hotelsLoading}
             heading={'Hotels'}
           />
           <BusinessList 
             businesses={attractions} 
             heading={'Tourist Attractions'}
+            loading={attractionsLoading}
           />
         </div>
       </main>
