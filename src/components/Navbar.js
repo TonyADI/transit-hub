@@ -12,7 +12,7 @@ const Navbar = props => {
                     term={props.country} 
                     handleChange={props.handleChange}
                     handleClick={props.handleClick}
-                    validCountry={props.validCountry}
+                    invalidCountry={props.invalidCountry}
                 />
                 <div className="login-bt-container">
                     <button className="login-bt">Login</button>

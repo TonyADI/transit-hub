@@ -19,20 +19,6 @@
     max-width: 150px;
 }
 
-div.loading{
-    display: flex;
-}
-  
-div.loading {
-    animation: loading 1.5s linear infinite;
-    background-color: #fff;
-    border-radius: 100%;
-    border: 5px solid #ccc;
-    border-top: 5px solid #396ae6;
-    padding: 20px;
-}
-  
-
 .text-overflow-el {
     overflow: hidden;
     text-overflow: ellipsis;

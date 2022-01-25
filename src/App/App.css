@@ -60,15 +60,14 @@ main {
   background-size: 0% 100%;
   border: 0;
   border-radius: 45px;
+  color: #000;
   cursor: pointer;
-  font-size: 18px;
   margin: 10px auto;
   padding: 15px 20px;
-  height: 50px;
   transform: translateY(70px);
   min-width: 200px;
   transition: background-size 0.5s, color 0.25s;
-  /*width max-content, height: auto */
+  text-decoration: none;
 }
 
 .hero-bt:hover{
@@ -101,6 +100,25 @@ main {
 
 .fade-up {
   animation: fade-up 0.75s 0.5s forwards;
+}
+
+
+div.loading{
+  display: flex;
+}
+
+div.loading {
+  animation: loading 0.75s linear infinite;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 5px solid #396ae6bb;
+  border-top: 5px solid #fff;
+  padding: 20px;
+}
+
+@keyframes loading{
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }
 
 @keyframes drop-down {
@@ -174,6 +192,7 @@ main {
     font-size: 40px;
   }
   .hero-bt {
+    font-size: 16.5px;
     min-width: 70%;
   }
   .country-container {
