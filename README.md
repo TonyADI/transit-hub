@@ -29,6 +29,7 @@ Transit hub helps users find useful information on travel locations. Users input
 
 ## Future Features
 - [ ] Flight planner
+- [ ] Save selected hotels and attractions for later
 
 ## Installation
 The project is currently live at https://tonyadi.com/apps/transit-hub.html or clone it to your machine using `git clone https://github.com/TonyADI/transit-hub.git` then `npm install` and `npm run start`.
