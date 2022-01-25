@@ -46,8 +46,3 @@ RestCountries Api - https://restcountries.eu
 Unsplash Api - https://unsplash.com/documentation
 <br>
 Yelp Api - https://www.yelp.com/developers/documentation/v3
-
-## ToDo
-- [ ] Add loading animations.
-- [ ] Optimize images to improve app performance.
-- [ ] Add animation on scroll.
