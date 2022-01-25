@@ -39,6 +39,12 @@
     overflow: hidden;
 }
 
+.country-images-container > .loading {
+    box-sizing: border-box;
+    margin: auto;
+    width: 20px;
+}
+
 .country-images-container img{
     border-radius: 10px;
     height: 100%;

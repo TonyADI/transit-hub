@@ -224,6 +224,9 @@ div.loading {
     width: 100%;
     min-height: 60vw;
   }
+  .country-images-container > .loading {
+    margin-top: calc(30vw - 20px);
+  }
   .country-details {
     order: 3;
     flex-direction: row;

@@ -35,13 +35,17 @@ const Country = props => {
                 </div>
 
                 <div className="country-images-container">
-                    {props.photos.length ? props.photos.map(photo =>
+                    {!props.loading ? props.photos.length ? props.photos.map(photo =>
                             <img 
                                 src={photo.imgUrl} 
                                 alt={photo.descrp} 
                                 key={photo.id}
-                            />):
-                            'No Images'
+                            />) 
+                            :
+                        'No Images' 
+                    : 
+                    <div className="loading">
+                    </div>
                 }
                 </div>
 

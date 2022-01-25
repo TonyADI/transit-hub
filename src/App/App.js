@@ -26,13 +26,14 @@ const App = () => {
   const [covidLevel, setCovidLevel] = useState('');
   const [details, setDetails] = useState({});
   const [hotels, setHotels] = useState([]);
+  const [imgLoading, setImgLoading] = useState(false);
   const [hotelsLoading, setHotelsLoading] = useState(false);
   const [attractionsLoading, setAttractionsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [invalidCountry, setInvalidCountry] = useState(false);
   const [warningMessage, setWarningMessage] = useState('');
 
-  // Update search term
+  // Update search term and reset invalidCountry state
   const handleChange = term => {
     if(term === ''){
       setInvalidCountry(false);
@@ -42,9 +43,11 @@ const App = () => {
 
   // Run search term through all APIs
   const handleApiCalls = (term = country) => {
+    setImgLoading(true);
     photoSearch(term).then(photos => {
       setPhotos(photos);})
-      .catch(error => console.log(error)
+      .catch(error => console.log(error))
+      .finally(() => setImgLoading(false)
     );
 
     countrySearch(term).then(details => {
@@ -80,12 +83,13 @@ const App = () => {
   const selectRandomCountry = () => {
     const index = Math.floor(Math.random() * levelOne.length);
     const country = levelOne[index];
-    setCovidLevel('One')
     handleApiCalls(country);
+    setCovidLevel('One');
   }
 
   useEffect(() => {
     handleApiCalls('Japan');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Select random hero background everytime app runs
@@ -151,6 +155,7 @@ const App = () => {
           callingCodes={details.callingCodes} 
           currencies={details.currencies} 
           languages={details.languages} 
+          loading={imgLoading}
           flag={details.flag} 
           name={details.name}
         />
