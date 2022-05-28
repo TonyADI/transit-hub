@@ -1,12 +1,12 @@
-import Business from './Business';
+import Business from '../Business/Business';
 import './BusinessList.css';
 
-const BusinessList = props => {
+const BusinessList = ({businesses, heading, loading}) => {
     return (
         <div>
-            <h2>{props.heading || 'Businesses'}</h2>
+            <h2>{heading || 'Businesses'}</h2>
             <div className="businessList">
-                {!props.loading ? props.businesses.length ? props.businesses.map(business => 
+                {!loading ? businesses.length ? businesses.map(business => 
                 { return <Business 
                             key={business.id} 
                             address={business.address}

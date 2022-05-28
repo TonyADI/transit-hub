@@ -1,24 +1,25 @@
 import PropTypes from 'prop-types';
 import './Business.css';
 
-const Business = props => {
+const Business = ({address, city, imageSrc, name, price, state, 
+				   rating, reviewCount, url, zipCode}) => {
 	return (
 		<div className="business-container">
-			<a href={props.url}>
+			<a href={url}>
 			  <div className="business-image-container">	  
-			    <img src={props.imageSrc} alt={props.name}/>
+			    <img src={imageSrc} alt={name}/>
 			  </div>
-			  <h2>{props.name}</h2>
+			  <h2>{name}</h2>
 			  <div className="business-info">
 			    <div className="business-address">
-			      <p>{props.address}</p>
-			      <p>{props.city}</p>
-			      <p>{props.state} {props.zipCode}</p>
+			      <p>{address}</p>
+			      <p>{city}</p>
+			      <p>{state} {zipCode}</p>
 			    </div>
 			    <div className="business-reviews">
-			      <h3>{props.price}</h3>
-			      <h3 className="business-rating">{props.rating} Stars</h3>
-			      <p>{props.reviewCount} reviews</p>
+			      <h3>{price}</h3>
+			      <h3 className="business-rating">{rating} Stars</h3>
+			      <p>{reviewCount} reviews</p>
     				</div>
   				</div>
 			  </a>

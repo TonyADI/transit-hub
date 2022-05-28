@@ -1,37 +1,32 @@
 import { useState, useEffect } from 'react';
-import hero_bg1 from '../assets/images/hero-bg.jpg';
-import hero_bg2 from '../assets/images/hero-bg2.jpg';
-import hero_bg3 from '../assets/images/hero-bg3.jpg';
-import hero_bg4 from '../assets/images/hero-bg4.jpg';
-import hero_bg5 from '../assets/images/hero-bg5.jpg';
-import BusinessList from '../components/BusinessList';
-import CovidInfo from '../components/CovidInfo';
-import Country from '../components/Country';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import businessSearch from '../utils/YelpAPI';
-import covidSearch from '../utils/Covid19API';
-import countries, { levelOne } from '../utils/CovidTravelAdvisory';
-import countrySearch from '../utils/RestCountriesAPI';
-import photoSearch from '../utils/UnsplashAPI';
 import './App.css';
+/* Components */
+import BusinessList from '../components/BusinessList/BusinessList';
+import CovidInfo from '../components/CovidInfo/CovidInfo';
+import Country from '../components/Country/Country';
+import Hero from '../components/Hero/Hero';
+import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar/Navbar';
+/* Utilities */
+import { businessSearch, covidSearch, 
+         countrySearch, photoSearch } from '../utils/ApiClient';
+import countries, { levelOne } from '../utils/CovidTravelAdvisory';
+import { heroBg } from '../utils/BackgroundSelector';
 
 const App = () => {
   const [attractions, setAttractions] = useState([]);
-  const [bgImage, setBgImage] = useState('');
+  const [hotels, setHotels] = useState([]);
   const [bgColor, setBgColor] = useState('');
-  const [country, setCountry] = useState('japan');
-  const [covidData, setCovidData] = useState({});
+  const [country, setCountry] = useState('japan'); // Search term
+  const [covidData, setCovidData] = useState({}); // Hook 5
   const [covidLevel, setCovidLevel] = useState('');
   const [details, setDetails] = useState({});
-  const [hotels, setHotels] = useState([]);
   const [imgLoading, setImgLoading] = useState(false);
-  const [hotelsLoading, setHotelsLoading] = useState(false);
+  const [hotelsLoading, setHotelsLoading] = useState(false); // Hook 10
   const [attractionsLoading, setAttractionsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [invalidCountry, setInvalidCountry] = useState(false);
-  const [warningMessage, setWarningMessage] = useState('');
+  const [warningMessage, setWarningMessage] = useState(''); // Hook 13
 
   // Update search term and reset invalidCountry state
   const handleChange = term => {
@@ -91,13 +86,6 @@ const App = () => {
     handleApiCalls('Japan');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Select random hero background everytime app runs
-  useEffect(() => {
-    const backgrounds = [hero_bg1,  hero_bg2,  hero_bg3, hero_bg4, hero_bg5];
-    const newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)]
-    setBgImage(newBackground);
-  }, []);
   
   useEffect(() => {
     switch(covidLevel){
@@ -143,7 +131,7 @@ const App = () => {
         invalidCountry={invalidCountry}
       />
       <Hero 
-        backgroundImage={bgImage}
+        backgroundImage={heroBg}
         handleClick={selectRandomCountry}/>
       <main>
         <Country 

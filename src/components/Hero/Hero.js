@@ -1,6 +1,6 @@
-const Hero = props => {
+const Hero = ({backgroundImage, handleClick}) => {
     return (
-        <div className="hero-container" style={{backgroundImage: `url(${props.backgroundImage})`}}>
+        <div className="hero-container" style={{backgroundImage: `url(${backgroundImage})`}}>
             <div className="img-overlay">
                 <div className="hero-body">
                     <span className="hero-heading">
@@ -10,7 +10,7 @@ const Hero = props => {
                         id="hero-link" 
                         href='#destination' 
                         className="hero-bt" 
-                        onClick={props.handleClick}
+                        onClick={handleClick}
                     >
                         Take me away
                     </a>

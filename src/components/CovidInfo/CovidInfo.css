@@ -26,7 +26,7 @@ div.flex-direction div > span {
     padding: 0 var(--body-padding);
 }
 
-.travel-advisory {
+.travel-advisory-level {
     animation: fade-in 1s ease forwards;
     background-position: 50% 50%;
     background-repeat: no-repeat;

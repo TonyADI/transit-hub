@@ -1,7 +1,7 @@
-import SearchBar from './SearchBar';
+import SearchBar from '../SearchBar/SearchBar';
 import './Navbar.css';
-
-const Navbar = props => {
+// logo and button could be components
+const Navbar = ({country, handleChange, handleClick, invalidCountry}) => {
     return (
         <div className="navbar-container">
             <nav className="navbar body-padding">
@@ -9,10 +9,10 @@ const Navbar = props => {
                     <a className="logo-link" href="./">Transit Hub</a>
                 </div>
                 <SearchBar 
-                    term={props.country} 
-                    handleChange={props.handleChange}
-                    handleClick={props.handleClick}
-                    invalidCountry={props.invalidCountry}
+                    term={country} 
+                    handleChange={handleChange}
+                    handleClick={handleClick}
+                    invalidCountry={invalidCountry}
                 />
                 <div className="login-bt-container">
                     <button className="login-bt">Login</button>

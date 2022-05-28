@@ -4,12 +4,12 @@
 
 .searchbar input{
     border: 0;
-    border-radius: inherit;
+    border-radius: 45px;
     box-sizing: border-box;
     font-size: 14px;
     outline: none;
     padding: 15px 20px;
-    transition: outline 0.2s;
+    transition: box-shadow 0.2s;
     width: 100%;
 }
 
@@ -22,5 +22,5 @@
 }
 
 .searchbar input:focus {
-    outline: 1px solid #396ae6 !important;
+    box-shadow: 0px 0px 0px 1px #396ae6 !important;
 }
