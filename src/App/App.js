@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createRef } from 'react';
 import './App.css';
 /* Components */
 import BusinessList from '../components/BusinessList/BusinessList';
@@ -17,27 +17,19 @@ const App = () => {
   const [attractions, setAttractions] = useState([]);
   const [hotels, setHotels] = useState([]);
   const [bgColor, setBgColor] = useState('');
-  const [country, setCountry] = useState('japan'); // Search term
   const [covidData, setCovidData] = useState({}); // Hook 5
   const [covidLevel, setCovidLevel] = useState('');
   const [details, setDetails] = useState({});
   const [imgLoading, setImgLoading] = useState(false);
-  const [hotelsLoading, setHotelsLoading] = useState(false); // Hook 10
-  const [attractionsLoading, setAttractionsLoading] = useState(false);
+  const [hotelsLoading, setHotelsLoading] = useState(false);
+  const [attractionsLoading, setAttractionsLoading] = useState(false); // Hook 10
   const [photos, setPhotos] = useState([]);
   const [invalidCountry, setInvalidCountry] = useState(false);
   const [warningMessage, setWarningMessage] = useState(''); // Hook 13
-
-  // Update search term and reset invalidCountry state
-  const handleChange = term => {
-    if(term === ''){
-      setInvalidCountry(false);
-    }
-    setCountry(term);
-  }
+  const inputRef = createRef();
 
   // Run search term through all APIs
-  const handleApiCalls = (term = country) => {
+  const handleApiCalls = (term = 'Japan') => {
     setImgLoading(true);
     photoSearch(term).then(photos => {
       setPhotos(photos);})
@@ -125,10 +117,8 @@ const App = () => {
   return (
     <div className="App">
       <Navbar 
-        term={country} 
-        handleChange={handleChange}
+        setInvalidCountry={setInvalidCountry}
         handleClick={handleSearch}
-        invalidCountry={invalidCountry}
       />
       <Hero 
         backgroundImage={heroBg}
