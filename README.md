@@ -32,7 +32,7 @@ Transit hub helps users find useful information on travel locations. Users input
 - [ ] Save selected hotels and attractions for later
 
 ## Installation
-The project is currently live at https://tonyadi.com/apps/transit-hub.html or clone it to your machine using `git clone https://github.com/TonyADI/transit-hub.git` then `npm install` and `npm run start`.
+The project is currently live at https://tonyadi.com/apps/transit-hub.html or clone it to your machine using `git clone https://github.com/TonyADI/transit-hub.git` then `npm install` and `npm start`.
 
 ## Instructions
 The application uses the cors anywhere proxy at https://cors-anywhere.herokuapp.com/corsdemo. Navigate to the website and request temporary access. The images should load after that.
