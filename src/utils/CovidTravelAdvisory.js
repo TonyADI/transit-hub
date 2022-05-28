@@ -4,7 +4,7 @@ export const levelFour = ['Argentina',' Bahrain','Bangladesh','Bolivia','Botswan
     ,'Fiji','French Guiana','Georgia','Guinea-Bissau','Haiti','Indonesia','Iraq','Kyrgyzstan'
     ,'Kuwait','Liberia','Madagascar','Malawi','Malaysia','Maldives','Mongolia','Mozambique'
     ,'Namibia','Nepal','Netherlands','Nicaragua','Oman','Panama','Papua New Guinea','Paraguay'
-    ,'Portugal','Réunion','Rwanda','Saudi Arabia','Seychelles','Sierra Leone','Somalia'
+    ,'Portugal','Reunion','Rwanda','Saudi Arabia','Seychelles','Sierra Leone','Somalia'
     ,'South Africa','South Sudan','Spain','Sudan','Suriname','Syria','Tunisia','Trinidad and Tobago'
     ,'Uganda','United Arab Emirates','United Kingdom','Uruguay','Zambia','Zimbabwe'];
 
@@ -18,7 +18,7 @@ export const levelThree = ['Afghanistan','Andorra','Armenia','Aruba','Bahamas, T
     'Saint Vincent and Grenadines','Sint Maarten','Slovenia','Sri Lanka','Sweden','Switzerland',
     'Thailand','Timor-Leste (East Timor)','Turkey', 'Virgin Islands, U.S'];
 
-export const levelTwo = ['Angola','Austria','Barbados','Bonaire','Cameroon','Croatia','Curaçao',
+export const levelTwo = ['Angola','Austria','Barbados','Bonaire','Cameroon','Croatia','Curacao',
     'Czech Republic','El Salvador','Ethiopia','Finland','Germany','Guam','Guinea','Jamaica',
     'Kenya','Madeira Islands','Mauritania','Morocco','Pakistan','Puerto Rico (U.S.)','Senegal',
     'Serbia','Ukraine'];
@@ -39,7 +39,7 @@ export const levelUnknown = ['Algeria','Antarctica','Azores','Bhutan','Canary Is
     'Christmas Island','Cocos (Keeling) Islands','Cook Islands','Eritrea','Gibraltar',
     'Guernsey','Jersey (part of the UK)','Kiribati','Macau SAR','Mayotte','Monaco',
     'Nauru','Niue','Norfolk Island','North Korea','Pitcairn Islands (U.K.)','Saint Helena',
-    'Samoa','San Marino','São Tomé and Príncipe','Solomon Islands',
+    'Samoa','San Marino','Sao Tome and Principe','Solomon Islands',
     'South Georgia and the South Sandwich Islands','Tajikistan','Tanzania','Tokelau',
     'Tonga','Turkmenistan','Tuvalu','Uzbekistan','Vanuatu','Venezuela','Wake Island','Yemen'];
 
@@ -52,7 +52,7 @@ const countries = {Algeria: 'Unknown', Antarctica: 'Unknown',
     Macau_SAR: 'Unknown',Mayotte: 'Unknown',Monaco: 'Unknown',
     Nauru: 'Unknown',Niue: 'Unknown',Norfolk_Island: 'Unknown',
     North_Korea: 'Unknown',Pitcairn_Islands: 'Unknown',Saint_Helena: 'Unknown',
-    Samoa: 'Unknown',San_Marino: 'Unknown',São_Tomé: 'Unknown',
+    Samoa: 'Unknown',San_Marino: 'Unknown',Sao_Tome: 'Unknown',
     Solomon_Islands: 'Unknown',South_Georgia: 'Unknown',Tajikistan: 'Unknown'
     ,Tanzania: 'Unknown',Tokelau: 'Unknown',Tonga: 'Unknown',
     Turkmenistan: 'Unknown',Tuvalu: 'Unknown',Uzbekistan: 'Unknown',
@@ -73,7 +73,7 @@ const countries = {Algeria: 'Unknown', Antarctica: 'Unknown',
     Slovakia: 'One', South_Korea: 'One', Taiwan: 'One', Togo: 'One', 
     Turks_and_Caicos_Islands: 'One', Vietnam : 'One', Angola: 'Two', Austria: 'Two', 
     Barbados: 'Two', Bonaire: 'Two', Cameroon: 'Two', Croatia
-    : 'Two', Curaçao: 'Two', Czech_Republic: 'Two',
+    : 'Two', Curacao: 'Two', Czech_Republic: 'Two',
     El_Salvador: 'Two', Ethiopia: 'Two', Finland: 'Two', Germany: 'Two', Guam: 'Two', Guinea
     : 'Two', Jamaica: 'Two', Kenya: 'Two', Madeira_Islands: 'Two', 
     Mauritania: 'Two', Pakistan: 'Two', Puerto_Rico: 'Two',
@@ -104,7 +104,7 @@ const countries = {Algeria: 'Unknown', Antarctica: 'Unknown',
     Maldives: 'Four', Mongolia: 'Four', Mozambique: 'Four', Namibia: 'Four', 
     Nepal: 'Four', Netherlands: 'Four', Nicaragua: 'Four', Oman: 'Four', 
     Panama: 'Four', Papua_New_Guinea: 'Four', Paraguay: 'Four', Portugal: 'Four', 
-    Réunion: 'Four', Rwanda: 'Four', Saudi_Arabia: 'Four', Seychelles: 'Four', 
+    Reunion: 'Four', Rwanda: 'Four', Saudi_Arabia: 'Four', Seychelles: 'Four', 
     Sierra_Leone: 'Four', Somalia: 'Four', South_Africa: 'Four', South_Sudan: 'Four', 
     Spain: 'Four', Sudan: 'Four', Suriname: 'Four', Syria: 'Four', Tunisia: 'Four', 
     Trinidad_and_Tobago: 'Four', Uganda: 'Four', United_Arab_Emirates: 'Four', 
