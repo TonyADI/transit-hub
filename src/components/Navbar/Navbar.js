@@ -1,7 +1,13 @@
+import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import './Navbar.css';
 // logo and button could be components
-const Navbar = ({country, handleChange, handleClick, invalidCountry}) => {
+const Navbar = ({handleClick, invalidCountry, setInvalidCountry}) => {
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleChange = term => {
+      if(term === '') setInvalidCountry(false);
+      setSearchTerm(term);
+    }
     return (
         <div className="navbar-container">
             <nav className="navbar body-padding">
@@ -9,7 +15,7 @@ const Navbar = ({country, handleChange, handleClick, invalidCountry}) => {
                     <a className="logo-link" href="./">Transit Hub</a>
                 </div>
                 <SearchBar 
-                    term={country} 
+                    term={searchTerm} 
                     handleChange={handleChange}
                     handleClick={handleClick}
                     invalidCountry={invalidCountry}
