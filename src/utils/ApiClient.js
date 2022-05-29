@@ -39,7 +39,7 @@ export const covidSearch = async country => {
 
 // Unsplash API
 export const photoSearch = async term => {
-    const client_id = 'T0jCXzIigIBjuwNApWDyTtpNs_xUi2Lu1hWOBMjKFFs';
+    const client_id = '';
     try {
         const response = await fetch(`https://api.unsplash.com/search/photos?per_page=4&page=1&query=${term}&orientation=landscape&client_id=${client_id}`);
         if(response.ok){
@@ -60,7 +60,7 @@ export const photoSearch = async term => {
 
 // Yelp API
 export const businessSearch = async (term, location) => {
-    const apiKey = 'LlSYNgI-7ENc8EmHArpfRTuubr23UHpFcmuicwiTyg6UI3nM_ojuk0SLQ6xwT4mCMGdd8OiV75aQOrZcGMgp2qgxFJKY89tmB1mrpkzqWvn09Bk30YUPl099k8Z8YHYx';
+    const apiKey = '';
     try {
         const response = await fetch(`https://desolate-headland-35675.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&limit=8&location=${location}`,
             { headers: { Authorization: `Bearer ${apiKey}` } });
