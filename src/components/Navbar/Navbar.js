@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import './Navbar.css';
 // logo and button could be components
-const Navbar = ({handleClick, invalidCountry, setInvalidCountry}) => {
+const Navbar = ({handleClick, invalidCountry, setInvalidCountry, inputRef}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const handleChange = term => {
       if(term === '') setInvalidCountry(false);
@@ -19,6 +19,7 @@ const Navbar = ({handleClick, invalidCountry, setInvalidCountry}) => {
                     handleChange={handleChange}
                     handleClick={handleClick}
                     invalidCountry={invalidCountry}
+                    inputRef={inputRef}
                 />
                 <div className="login-bt-container">
                     <button className="login-bt">Login</button>

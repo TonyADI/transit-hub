@@ -64,7 +64,7 @@ const App = () => {
   const handleSearch = term => {
     handleApiCalls(term);
     window.location.assign('#destination');
-    document.querySelector('div.input-container input').blur();
+    inputRef.current.blur();
   }
 
   const selectRandomCountry = () => {
@@ -117,8 +117,10 @@ const App = () => {
   return (
     <div className="App">
       <Navbar 
+        invalidCountry={invalidCountry}
         setInvalidCountry={setInvalidCountry}
         handleClick={handleSearch}
+        inputRef={inputRef}
       />
       <Hero 
         backgroundImage={heroBg}

@@ -1,7 +1,7 @@
 import './SearchBar.css'
-const Searchbar = ({handleChange, handleClick, term, invalidCountry}) => {
+const Searchbar = ({handleChange, handleClick, inputRef, term, invalidCountry}) => {
     const handleSubmit = e => {
-        handleClick();
+        if(term) handleClick(term);
         e.preventDefault();
     }
     return (
@@ -10,6 +10,7 @@ const Searchbar = ({handleChange, handleClick, term, invalidCountry}) => {
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='country'></label>
                     <input
+                        ref={inputRef}
                         id='country' 
                         name='country'
                         placeholder="Enter a country..."
