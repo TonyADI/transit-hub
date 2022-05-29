@@ -9,12 +9,6 @@ const Country = (props) => {
             </span>
             <div className="flex-direction country-details-container">
                 <div className="country-details">
-                    {/*<div className="flex-direction-col">
-                        <h3>Capital</h3>
-                        <span className="text-overflow-el">
-                            {props.capital || '-'}
-                        </span>
-                    </div>*/}
                     <Stat 
                         heading='Capital'
                         stat={props.capital}/>
