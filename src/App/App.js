@@ -17,15 +17,15 @@ const App = () => {
   const [attractions, setAttractions] = useState([]);
   const [hotels, setHotels] = useState([]);
   const [bgColor, setBgColor] = useState('');
-  const [covidData, setCovidData] = useState({}); // Hook 5
+  const [covidData, setCovidData] = useState({});
   const [covidLevel, setCovidLevel] = useState('');
   const [details, setDetails] = useState({});
   const [imgLoading, setImgLoading] = useState(false);
   const [hotelsLoading, setHotelsLoading] = useState(false);
-  const [attractionsLoading, setAttractionsLoading] = useState(false); // Hook 10
+  const [attractionsLoading, setAttractionsLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [invalidCountry, setInvalidCountry] = useState(false);
-  const [warningMessage, setWarningMessage] = useState(''); // Hook 13
+  const [warningMessage, setWarningMessage] = useState('');
   const inputRef = createRef();
 
   // Run search term through all APIs
