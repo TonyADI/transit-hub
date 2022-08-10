@@ -1,7 +1,7 @@
 import Banner from '../Banner/Banner';
 import Stat from '../Stat/Stat';
 import './CovidInfo.css';
-const CovidInfo = ({confirmed, warningMessage, bgColor, covidLevel, deaths, recovered}) => {
+const CovidInfo = ({confirmed, warningMessage, bgColor, covidLevel, deaths, recovered, active}) => {
     return (
         <div className="covid-info-container">
                 <span className="covid-info">
@@ -27,7 +27,7 @@ const CovidInfo = ({confirmed, warningMessage, bgColor, covidLevel, deaths, reco
                         stat={recovered}/>
                     <Stat 
                         heading='Active Cases'
-                        stat={''}/>
+                        stat={active}/>
                 </div>
             </div>
     )
