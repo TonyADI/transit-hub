@@ -1,5 +1,5 @@
 # Transit Hub
-Transit hub helps users find useful information on travel locations. Users input a country and the app provides information on the country such as its covid 19 status, images, demographics, hotels and attractions. The app uses multiple APIs to accomplish these tasks. These include the YelpAPI, UnsplashAPI, RestCountriesAPI, and Covid19API.
+Transit hub helps users find useful information on travel destinations. Users input a country and the app provides information such as its covid 19 status, images, demographics, hotels and attractions. The app uses multiple APIs to accomplish these tasks. These include the YelpAPI, UnsplashAPI, RestCountriesAPI, and Covid19API.
 
 ## Live Demo
 <a href="https://tonyadi.com/apps/transit-hub.html" target="_blank">Demo</a>
@@ -28,7 +28,6 @@ Transit hub helps users find useful information on travel locations. Users input
 ![Hotel/Tourist Attraction Section](https://github.com/TonyADI/transit-hub/blob/main/src/assets/images/screenshot2.png?raw=true)
 
 ## Future Features
-- [ ] Flight planner
 - [ ] Save selected hotels and attractions for later
 
 ## Installation
